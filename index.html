@@ -1,503 +1,128 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TechFlow - Transforme Sua Ideia em Realidade</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            overflow-x: hidden;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Header */
-        header {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            transition: all 0.3s ease;
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 0;
-        }
-
-        .logo {
-            font-size: 1.8rem;
-            font-weight: bold;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .nav-links {
-            list-style: none;
-            display: flex;
-            gap: 2rem;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: #333;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            color: #667eea;
-        }
-
-        .cta-btn {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 0.8rem 2rem;
-            border: none;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
-        }
-
-        .cta-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 150px 0 100px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><polygon fill="rgba(255,255,255,0.1)" points="0,1000 1000,800 1000,1000"/></svg>');
-            background-size: cover;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            opacity: 0;
-            animation: fadeInUp 1s ease forwards;
-        }
-
-        .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-            opacity: 0;
-            animation: fadeInUp 1s ease 0.3s forwards;
-        }
-
-        .hero-btn {
-            display: inline-block;
-            background: white;
-            color: #667eea;
-            padding: 1rem 3rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.1rem;
-            opacity: 0;
-            animation: fadeInUp 1s ease 0.6s forwards;
-            transition: all 0.3s ease;
-        }
-
-        .hero-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-        }
-
-        /* Features Section */
-        .features {
-            padding: 100px 0;
-            background: #f8f9ff;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: #333;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 3rem;
-            margin-top: 4rem;
-        }
-
-        .feature-card {
-            background: white;
-            padding: 2.5rem;
-            border-radius: 20px;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .feature-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(102, 126, 234, 0.1), transparent);
-            transition: left 0.5s ease;
-        }
-
-        .feature-card:hover::before {
-            left: 100%;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.2);
-        }
-
-        .feature-icon {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 50%;
-            margin: 0 auto 1.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-        }
-
-        .feature-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: #333;
-        }
-
-        .feature-card p {
-            color: #666;
-            line-height: 1.6;
-        }
-
-        /* CTA Section */
-        .cta-section {
-            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
-            color: white;
-            padding: 100px 0;
-            text-align: center;
-        }
-
-        .cta-section h2 {
-            font-size: 2.8rem;
-            margin-bottom: 1rem;
-        }
-
-        .cta-section p {
-            font-size: 1.2rem;
-            margin-bottom: 2.5rem;
-            opacity: 0.9;
-        }
-
-        /* Footer */
-        footer {
-            background: #1a1a1a;
-            color: white;
-            padding: 50px 0 30px;
-            text-align: center;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .footer-section h3 {
-            margin-bottom: 1rem;
-            color: #667eea;
-        }
-
-        .footer-section p,
-        .footer-section a {
-            color: #ccc;
-            text-decoration: none;
-            line-height: 1.8;
-        }
-
-        .footer-section a:hover {
-            color: #667eea;
-        }
-
-        .footer-bottom {
-            border-top: 1px solid #333;
-            padding-top: 2rem;
-            color: #999;
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero p {
-                font-size: 1.1rem;
-            }
-
-            .features-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-        }
-
-        /* Floating elements */
-        .floating-shapes {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            z-index: 1;
-        }
-
-        .shape {
-            position: absolute;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            animation: float 6s ease-in-out infinite;
-        }
-
-        .shape:nth-child(1) {
-            width: 100px;
-            height: 100px;
-            top: 20%;
-            left: 10%;
-            animation-delay: 0s;
-        }
-
-        .shape:nth-child(2) {
-            width: 150px;
-            height: 150px;
-            top: 60%;
-            right: 10%;
-            animation-delay: 2s;
-        }
-
-        .shape:nth-child(3) {
-            width: 80px;
-            height: 80px;
-            top: 80%;
-            left: 20%;
-            animation-delay: 4s;
-        }
-
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0px) rotate(0deg);
-            }
-            50% {
-                transform: translateY(-20px) rotate(180deg);
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Ebook '5 Prompts de IA' com bônus de planilha para turbinar campanhas de marketing - Profissionais de marketing digital." />
+  <meta property="og:title" content="5 Prompts de IA para Turbinar Suas Campanhas" />
+  <meta property="og:description" content="Descubra como usar IA para aumentar conversões com prompts testados e planilha bônus." />
+  <meta property="og:image" content="/mnt/data/20250524_0940_Ebook%20Marketing%20IA%203D_simple_compose_01jw14vyf9ew5bfej7cfqgfsek.png" />
+  <title>5 Prompts de IA para Turbinar Suas Campanhas de Marketing</title>
+  <style>
+    :root {
+      --primary-color: #00e3c1;
+      --dark-bg: #08101a;
+      --text-color: #ffffff;
+      --accent-bg: #0f1a26;
+    }
+    * { scroll-behavior: smooth; box-sizing: border-box; }
+    body { margin:0; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background:var(--dark-bg); color:var(--text-color); }
+    header { background:var(--dark-bg); text-align:center; padding:60px 20px; }
+    header img.logo { height:60px; margin-bottom:20px; }
+    header h1 { font-size:2.8rem; color:var(--primary-color); }
+    header p { font-size:1.2rem; color:#d0f8f2; max-width:600px; margin:10px auto; }
+    .ebook-cover { text-align:center; margin-top:-40px; }
+    .ebook-cover img { max-width:300px; border-radius:10px; box-shadow:0 4px 20px rgba(0,0,0,0.5); loading:lazy; }
+    section { padding:60px 20px; max-width:900px; margin:auto; }
+    section h2 { color:var(--primary-color); font-size:2rem; margin-bottom:20px; }
+    .benefits ul { list-style:none; padding:0; }
+    .benefits li { display:flex; align-items:flex-start; background:var(--accent-bg); padding:20px; margin-bottom:12px; border-left:5px solid var(--primary-color); border-radius:5px; transition:transform .3s; }
+    .benefits li:hover { transform:translateX(5px); }
+    .benefits li .icon { font-size:1.5rem; margin-right:15px; color:var(--primary-color); flex-shrink:0; }
+    .bonus, .cta, .faq { background:var(--accent-bg); padding:30px; border-radius:10px; margin-top:40px; }
+    .bonus p strong { color:var(--primary-color); }
+    /* Carousel testimonials */
+    .testimonials { position:relative; overflow:hidden; }
+    .slides { display:flex; transition:transform .5s ease; }
+    .slide { min-width:100%; box-sizing:border-box; padding:20px; }
+    .slide blockquote { margin:0; border-left:4px solid var(--primary-color); padding-left:20px; color:#d0f8f2; font-style:italic; }
+    .carousel-controls { text-align:center; margin-top:10px; }
+    .carousel-controls button { background:none; border:1px solid var(--primary-color); color:var(--primary-color); padding:5px 10px; margin:0 5px; cursor:pointer; border-radius:3px; }
+    /* FAQ details */
+    .faq details { margin-bottom:15px; }
+    .faq summary { cursor:pointer; font-weight:bold; color:var(--primary-color); }
+    /* CTA urgency timer */
+    .timer { font-size:1.1rem; color:#ff6b6b; margin-top:10px; }
+    .cta a { background-color:var(--primary-color); color:var(--dark-bg); padding:15px 30px; border-radius:5px; text-decoration:none; font-weight:bold; font-size:1.2rem; transition:background .3s; display:inline-block; margin-top:10px; }
+    .cta a:hover { background-color:#00ccb0; }
+    footer { text-align:center; padding:20px; background:#061018; color:#99b8b3; }
+    footer a { color:#99b8b3; margin:0 10px; text-decoration:none; font-size:0.9rem; }
+    @media(max-width:600px){header h1{font-size:2rem;}header p{font-size:1rem;}.ebook-cover img{max-width:90%;}}
+  </style>
 </head>
 <body>
-<!-- Header -->
-<header>
-    <nav class="container">
-        <div class="logo">TechFlow</div>
-        <ul class="nav-links">
-            <li><a href="#inicio">Início</a></li>
-            <li><a href="#recursos">Recursos</a></li>
-            <li><a href="#sobre">Sobre</a></li>
-            <li><a href="#contato">Contato</a></li>
-        </ul>
-        <a href="#" class="cta-btn">Começar Agora</a>
-    </nav>
-</header>
-
-<!-- Hero Section -->
-<section class="hero" id="inicio">
-    <div class="floating-shapes">
-        <div class="shape"></div>
-        <div class="shape"></div>
-        <div class="shape"></div>
+  <header>
+    <img src="/mnt/data/WhatsApp%20Image%202025-05-28%20at%2020.45.35.jpeg" alt="Logo Evolua com IA" class="logo" loading="lazy">
+    <h1>Impulsione suas campanhas com IA</h1>
+    <p>Descubra como aplicar inteligência artificial para aumentar suas conversões e otimizar suas estratégias – por apenas R$14,90!</p>
+  </header>
+  <div class="ebook-cover">
+    <img src="/mnt/data/20250524_0940_Ebook%20Marketing%20IA%203D_simple_compose_01jw14vyf9ew5bfej7cfqgfsek.png" alt="Capa do E-book" loading="lazy">
+  </div>
+  <section class="benefits">
+    <h2>O que você vai conquistar:</h2>
+    <ul>
+      <li><span class="icon">✔️</span><span>Crie anúncios impactantes em segundos.</span></li>
+      <li><span class="icon">⚡</span><span>Economize horas na criação de conteúdo.</span></li>
+      <li><span class="icon">📈</span><span>Aumente suas conversões com prompts prontos.</span></li>
+      <li><span class="icon">🤖</span><span>Fácil de aplicar mesmo para iniciantes em IA.</span></li>
+    </ul>
+  </section>
+  <section class="bonus">
+    <h2>Bônus Especial</h2>
+    <p>Receba uma <strong>planilha prática com todos os prompts</strong> prontos para usar imediatamente em suas campanhas. Um verdadeiro acelerador de resultados!</p>
+  </section>
+  <section class="testimonials">
+    <h2>Profissionais já estão transformando seus resultados</h2>
+    <div class="slides">
+      <div class="slide"><blockquote>"Em 2 semanas, minha taxa de conversão aumentou 20% com esses prompts!"<br>— Camila Lima, Social Media</blockquote></div>
+      <div class="slide"><blockquote>"Consegui montar 20 variações de anúncio em menos de 10 minutos. Game changer!"<br>— Felipe Rocha, Gestor de Tráfego Pago</blockquote></div>
     </div>
-    <div class="container">
-        <div class="hero-content">
-            <h1>Transforme Sua Ideia em Realidade</h1>
-            <p>Criamos soluções digitais inovadoras que impulsionam seu negócio para o próximo nível</p>
-            <a href="#" class="hero-btn">Descubra Como</a>
-        </div>
+    <div class="carousel-controls">
+      <button onclick="prevSlide()">Anterior</button>
+      <button onclick="nextSlide()">Próximo</button>
     </div>
-</section>
-
-<!-- Features Section -->
-<section class="features" id="recursos">
-    <div class="container">
-        <h2 class="section-title">Por Que Nos Escolher?</h2>
-        <div class="features-grid">
-            <div class="feature-card">
-                <div class="feature-icon">🚀</div>
-                <h3>Performance Superior</h3>
-                <p>Soluções otimizadas que garantem velocidade e eficiência máxima para seu projeto digital.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">🎨</div>
-                <h3>Design Moderno</h3>
-                <p>Interfaces elegantes e intuitivas que proporcionam uma experiência única aos seus usuários.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">🔒</div>
-                <h3>Segurança Total</h3>
-                <p>Implementamos as melhores práticas de segurança para proteger seus dados e de seus clientes.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- CTA Section -->
-<section class="cta-section">
-    <div class="container">
-        <h2>Pronto Para Começar?</h2>
-        <p>Junte-se a centenas de empresas que já transformaram seus negócios conosco</p>
-        <a href="#" class="cta-btn">Fale Conosco</a>
-    </div>
-</section>
-
-<!-- Footer -->
-<footer>
-    <div class="container">
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>TechFlow</h3>
-                <p>Transformando ideias em soluções digitais inovadoras desde 2020.</p>
-            </div>
-            <div class="footer-section">
-                <h3>Contato</h3>
-                <p>Email: contato@techflow.com</p>
-                <p>Telefone: (11) 9999-9999</p>
-            </div>
-            <div class="footer-section">
-                <h3>Links Rápidos</h3>
-                <p><a href="#">Sobre Nós</a></p>
-                <p><a href="#">Serviços</a></p>
-                <p><a href="#">Portfólio</a></p>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 TechFlow. Todos os direitos reservados.</p>
-        </div>
-    </div>
-</footer>
-
-<script>
-    // Smooth scrolling for navigation links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
-        });
-    });
-
-    // Header background on scroll
-    window.addEventListener('scroll', () => {
-        const header = document.querySelector('header');
-        if (window.scrollY > 100) {
-            header.style.background = 'rgba(255, 255, 255, 0.98)';
-            header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.1)';
-        } else {
-            header.style.background = 'rgba(255, 255, 255, 0.95)';
-            header.style.boxShadow = 'none';
-        }
-    });
-
-    // Feature cards animation on scroll
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-            }
-        });
-    }, observerOptions);
-
-    document.querySelectorAll('.feature-card').forEach(card => {
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(30px)';
-        card.style.transition = 'all 0.6s ease';
-        observer.observe(card);
-    });
-</script>
+  </section>
+  <section class="faq">
+    <h2>Dúvidas Frequentes</h2>
+    <details><summary>Como recebo o e-book?</summary><p>Após a compra, você receberá um link imediato para download em seu e-mail.</p></details>
+    <details><summary>Preciso saber usar IA?</summary><p>Não! O material é direto, didático e ideal até mesmo para iniciantes.</p></details>
+    <details><summary>Posso aplicar os prompts em qualquer nicho?</summary><p>Sim! Os prompts foram pensados para serem adaptáveis a qualquer tipo de negócio.</p></details>
+  </section>
+  <section class="cta">
+    <h2>Garanta seu e-book por apenas R$14,90</h2>
+    <div class="timer" id="timer"></div>
+    <a href="https://pay.hotmart.com/Y99717508D?off=fxlt3f4n" target="_blank" rel="noopener noreferrer">Comprar agora</a>
+    <p><em>*Download imediato após a compra.</em></p>
+  </section>
+  <footer>
+    <a href="#">Política de Privacidade</a> | <a href="#">Termos de Uso</a>
+    <p>© 2025 Evolua com IA. Todos os direitos reservados.</p>
+  </footer>
+  <script>
+    // Carousel
+    let current = 0;
+    const slides = document.querySelectorAll('.slide');
+    function showSlide(index) {
+      const total = slides.length;
+      current = (index + total) % total;
+      document.querySelector('.slides').style.transform = `translateX(-${current * 100}%)`;
+    }
+    function nextSlide() { showSlide(current + 1); }
+    function prevSlide() { showSlide(current - 1); }
+    // Countdown Timer (24h)
+    const endTime = new Date().getTime() + 24*60*60*1000;
+    function updateTimer() {
+      const now = new Date().getTime();
+      const diff = endTime - now;
+      if (diff <= 0) return document.getElementById('timer').innerText = 'Oferta encerrada';
+      const h = Math.floor(diff/(1000*60*60));
+      const m = Math.floor((diff%(1000*60*60))/(1000*60));
+      const s = Math.floor((diff%(1000*60))/(1000));
+      document.getElementById('timer').innerText = `Oferta expira em ${h}h ${m}m ${s}s`;
+    }
+    setInterval(updateTimer,1000);
+    updateTimer();
+  </script>
 </body>
 </html>
