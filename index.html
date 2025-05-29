@@ -10,7 +10,7 @@
   <meta property="og:description" content="Descubra como aplicar inteligência artificial para aumentar conversões e otimizar estratégias de marketing digital.">
   <meta property="og:image" content="assets/book_cover.png">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://evoluacomia.com/ebook">
+  <meta property="og:url" content="https://evoluacomia.github.io">
   <meta property="og:locale" content="pt_BR">
 
   <title>5 Prompts de IA para Turbinar Suas Campanhas de Marketing</title>
@@ -188,67 +188,219 @@
       margin: 0 auto;
     }
 
-    /* Testimonials Carousel */
-    .testimonials-section {
-      padding: 4rem 0;
-      background: var(--dark-bg);
-    }
-
-    .carousel-container {
-      position: relative;
-      max-width: 800px;
-      margin: 0 auto;
-      overflow: hidden;
-      border-radius: 20px;
-    }
-
-    .carousel-track {
-      display: flex;
-      transition: transform 0.5s ease-in-out;
-    }
-
-    .slide {
-      min-width: 100%;
-      background: var(--accent-bg);
-      padding: 3rem 2rem;
+    /* Enhanced Social Proof Styles */
+    .stats-counter {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      margin: 3rem 0;
       text-align: center;
-      border-radius: 20px;
-      margin: 0 1rem;
     }
 
-    .testimonial-text {
-      font-size: 1.2rem;
-      font-style: italic;
-      margin-bottom: 1.5rem;
-      color: #e0e0e0;
-    }
-
-    .testimonial-author {
-      font-weight: 600;
-      color: var(--primary-color);
-    }
-
-    .carousel-nav {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      margin-top: 2rem;
-    }
-
-    .nav-btn {
-      background: var(--primary-color);
-      color: var(--dark-bg);
-      border: none;
-      padding: 0.8rem 1.5rem;
-      border-radius: 25px;
-      cursor: pointer;
-      font-weight: 600;
+    .stat-item {
+      background: var(--accent-bg);
+      padding: 2rem 1rem;
+      border-radius: 15px;
+      border: 2px solid transparent;
       transition: all 0.3s ease;
     }
 
-    .nav-btn:hover {
-      background: #00b8a8;
-      transform: translateY(-2px);
+    .stat-item:hover {
+      border-color: var(--primary-color);
+      transform: translateY(-5px);
+    }
+
+    .stat-number {
+      font-size: 3rem;
+      font-weight: 800;
+      color: var(--primary-color);
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-label {
+      font-size: 1rem;
+      color: #e0e0e0;
+      font-weight: 500;
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+      margin: 3rem 0;
+    }
+
+    .testimonial-card {
+      background: var(--accent-bg);
+      padding: 2rem;
+      border-radius: 20px;
+      border-left: 4px solid var(--primary-color);
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .testimonial-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(0, 227, 193, 0.2);
+    }
+
+    .testimonial-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .client-photo {
+      margin-right: 1rem;
+    }
+
+    .client-photo img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      border: 3px solid var(--primary-color);
+    }
+
+    .client-info {
+      flex: 1;
+    }
+
+    .client-name {
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--text-color);
+      margin-bottom: 0.2rem;
+    }
+
+    .client-title {
+      font-size: 0.9rem;
+      color: #b0b0b0;
+      margin-bottom: 0.5rem;
+    }
+
+    .rating {
+      color: #ffd700;
+      font-size: 1.1rem;
+    }
+
+    .testimonial-text {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #e0e0e0;
+      margin-bottom: 1.5rem;
+    }
+
+    .result-highlight {
+      background: rgba(0, 227, 193, 0.1);
+      padding: 0.8rem 1rem;
+      border-radius: 10px;
+      border-left: 3px solid var(--primary-color);
+    }
+
+    .result-label {
+      font-size: 0.9rem;
+      color: #b0b0b0;
+      margin-right: 0.5rem;
+    }
+
+    .result-value {
+      font-weight: 700;
+      color: var(--primary-color);
+      font-size: 1rem;
+    }
+
+    .activity-feed {
+      background: var(--dark-bg);
+      border-radius: 15px;
+      padding: 1.5rem;
+      margin-top: 3rem;
+      text-align: left;
+    }
+
+    .activity-item {
+      display: flex;
+      align-items: center;
+      padding: 0.8rem 0;
+      border-bottom: 1px solid var(--accent-bg);
+      animation: fadeInActivity 0.5s ease-in-out;
+    }
+
+    .activity-item:last-child {
+      border-bottom: none;
+    }
+
+    .activity-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--primary-color);
+      border-radius: 50%;
+      margin-right: 1rem;
+      animation: pulse 2s infinite;
+    }
+
+    .activity-text {
+      flex: 1;
+      font-size: 0.9rem;
+      color: #e0e0e0;
+    }
+
+    .activity-time {
+      font-size: 0.8rem;
+      color: #888;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+
+    @keyframes fadeInActivity {
+      from { opacity: 0; transform: translateX(-20px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    /* Scarcity Alert Styles */
+    .scarcity-alert {
+      background: linear-gradient(135deg, #ff4444 0%, #cc0000 100%);
+      color: white;
+      padding: 1rem;
+      text-align: center;
+      font-weight: 600;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 20px rgba(255, 68, 68, 0.3);
+    }
+
+    .scarcity-alert .blink {
+      animation: blink 1s infinite;
+    }
+
+    @keyframes blink {
+      0%, 50% { opacity: 1; }
+      51%, 100% { opacity: 0.7; }
+    }
+
+    .stock-counter {
+      background: rgba(255, 255, 255, 0.1);
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      border-radius: 15px;
+      padding: 1.5rem;
+      margin: 2rem auto;
+      max-width: 400px;
+      text-align: center;
+    }
+
+    .stock-number {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: #ff4444;
+      text-shadow: 0 2px 10px rgba(255, 68, 68, 0.5);
+    }
+
+    .stock-text {
+      font-size: 1.1rem;
+      margin-top: 0.5rem;
     }
 
     /* FAQ Section */
@@ -404,11 +556,16 @@
   </style>
 </head>
 <body>
+<!-- Scarcity Alert -->
+<div class="scarcity-alert">
+  <span class="blink">🔥 ATENÇÃO:</span> Restam apenas <span id="stock-left">23</span> cópias disponíveis nesta promoção!
+</div>
+
 <!-- Header Section -->
 <header class="header">
   <div class="container">
     <!-- Logo placeholder - replace with actual logo -->
-    <img src="assets/logo.png" alt="Evolua com IA" class="logo" loading="lazy">
+    <img src="assets/logo.jpeg" alt="Evolua com IA" class="logo" loading="lazy">
 
     <h1 class="headline">Impulsione suas campanhas com IA</h1>
     <p class="subheadline">Descubra como aplicar inteligência artificial para aumentar suas conversões e otimizar suas estratégias – por apenas R$14,90!</p>
@@ -456,24 +613,91 @@
   </div>
 </section>
 
-<!-- Testimonials Carousel -->
+<!-- Social Proof Section -->
 <section class="testimonials-section">
   <div class="container">
-    <h2 class="section-title">O que nossos clientes dizem:</h2>
-    <div class="carousel-container">
-      <div class="carousel-track" id="carousel-track">
-        <div class="slide">
-          <p class="testimonial-text">"Depois de aplicar os prompts do e-book, minhas campanhas tiveram um aumento de 40% na taxa de conversão. Simplesmente incrível!"</p>
-          <p class="testimonial-author">— Ana Silva, Empreendedora Digital</p>
+    <h2 class="section-title">+2.847 profissionais já transformaram seus resultados</h2>
+
+    <!-- Stats Counter -->
+    <div class="stats-counter">
+      <div class="stat-item">
+        <div class="stat-number" id="downloads-counter">2847</div>
+        <div class="stat-label">Downloads Realizados</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">4.9</div>
+        <div class="stat-label">★★★★★ Avaliação Média</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">156%</div>
+        <div class="stat-label">Aumento Médio de ROI</div>
+      </div>
+    </div>
+
+    <!-- Enhanced Testimonials -->
+<!--    Todo: Colocar imagens corretas-->
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="testimonial-header">
+          <div class="client-photo">
+            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48Y2lyY2xlIGN4PSIzMCIgY3k9IjMwIiByPSIzMCIgZmlsbD0iIzAwZTNjMSIvPjx0ZXh0IHg9IjMwIiB5PSIzNyIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjI0IiBmb250LXdlaWdodD0iYm9sZCIgZmlsbD0iIzA4MTAxYSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+QVM8L3RleHQ+PC9zdmc+" alt="Ana Silva" loading="lazy">
+          </div>
+          <div class="client-info">
+            <div class="client-name">Ana Silva</div>
+            <div class="client-title">CEO, Marketing Digital Pro</div>
+            <div class="rating">★★★★★</div>
+          </div>
         </div>
-        <div class="slide">
-          <p class="testimonial-text">"Os prompts são muito práticos e fáceis de implementar. Em menos de uma semana já vi resultados significativos nas minhas campanhas."</p>
-          <p class="testimonial-author">— Carlos Oliveira, Gestor de Marketing</p>
+        <p class="testimonial-text">"Em 15 dias aplicando os prompts, <strong>aumentei minha taxa de conversão de 2,1% para 3,8%</strong> - um resultado que eu não conseguia há meses. O investimento se pagou 47x!"</p>
+        <div class="result-highlight">
+          <span class="result-label">Resultado:</span>
+          <span class="result-value">+81% de conversão</span>
         </div>
       </div>
-      <div class="carousel-nav">
-        <button class="nav-btn" onclick="prevSlide()">Anterior</button>
-        <button class="nav-btn" onclick="nextSlide()">Próximo</button>
+
+      <div class="testimonial-card">
+        <div class="testimonial-header">
+          <div class="client-photo">
+            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48Y2lyY2xlIGN4PSIzMCIgY3k9IjMwIiByPSIzMCIgZmlsbD0iIzAwZTNjMSIvPjx0ZXh0IHg9IjMwIiB5PSIzNyIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjI0IiBmb250LXdlaWdodD0iYm9sZCIgZmlsbD0iIzA4MTAxYSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+Q088L3RleHQ+PC9zdmc+" alt="Carlos Oliveira" loading="lazy">
+          </div>
+          <div class="client-info">
+            <div class="client-name">Carlos Oliveira</div>
+            <div class="client-title">Diretor de Marketing, TechCorp</div>
+            <div class="rating">★★★★★</div>
+          </div>
+        </div>
+        <p class="testimonial-text">"Economizei <strong>R$ 3.200 em testes de anúncios</strong> no primeiro mês. Os prompts me deram copy's prontos que converteram desde o primeiro dia."</p>
+        <div class="result-highlight">
+          <span class="result-label">Economia:</span>
+          <span class="result-value">R$ 3.200/mês</span>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-header">
+          <div class="client-photo">
+            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48Y2lyY2xlIGN4PSIzMCIgY3k9IjMwIiByPSIzMCIgZmlsbD0iIzAwZTNjMSIvPjx0ZXh0IHg9IjMwIiB5PSIzNyIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjI0IiBmb250LXdlaWdodD0iYm9sZCIgZmlsbD0iIzA4MTAxYSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+TU08L3RleHQ+PC9zdmc+" alt="Mariana Mendes" loading="lazy">
+          </div>
+          <div class="client-info">
+            <div class="client-name">Mariana Mendes</div>
+            <div class="client-title">Freelancer, Consultoria Digital</div>
+            <div class="rating">★★★★★</div>
+          </div>
+        </div>
+        <p class="testimonial-text">"Como freelancer, tempo é dinheiro. <strong>Reduzi 6 horas de criação por campanha</strong> e ainda entrego resultados superiores aos meus clientes."</p>
+        <div class="result-highlight">
+          <span class="result-label">Tempo poupado:</span>
+          <span class="result-value">6h por projeto</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Live Activity Feed -->
+    <div class="activity-feed" id="activity-feed">
+      <div class="activity-item">
+        <span class="activity-dot"></span>
+        <span class="activity-text">Maria de SP acabou de baixar o e-book</span>
+        <span class="activity-time">há 2 min</span>
       </div>
     </div>
   </div>
@@ -518,18 +742,24 @@
   </div>
 </section>
 
-<!-- CTA Section with Countdown -->
+<!-- CTA Section with Countdown and Scarcity -->
 <section class="cta-section">
   <div class="container">
     <h2 class="section-title">Transforme suas campanhas por apenas R$ 14,90</h2>
+
+    <!-- Stock Counter -->
+    <div class="stock-counter">
+      <div class="stock-number" id="stock-display">23</div>
+      <div class="stock-text">cópias restantes nesta promoção</div>
+    </div>
 
     <div class="countdown">
       <p>⏰ Oferta expira em:</p>
       <div class="countdown-timer" id="countdown-timer">24h 00m 00s</div>
     </div>
 
-    <a href="https://pay.hotmart.com/Y99717508D?off=fxlt3f4n" class="cta-button" target="_blank">
-      Comprar Agora
+    <a href="https://pay.hotmart.com/Y99717508D?off=fxlt3f4n" class="cta-button" target="_blank" onclick="updateStock()">
+      Garantir Minha Cópia Agora
     </a>
 
     <p class="cta-note">*Download imediato após a compra.</p>
@@ -548,28 +778,103 @@
 </footer>
 
 <script>
-  // Carousel functionality
-  let currentSlide = 0;
-  const slides = document.querySelectorAll('.slide');
-  const totalSlides = slides.length;
+  // Enhanced Social Proof - Live Activity Feed
+  const activities = [
+    { name: "Maria de SP", action: "baixou o e-book", time: 2 },
+    { name: "João do RJ", action: "fez a compra", time: 5 },
+    { name: "Ana de MG", action: "baixou o e-book", time: 8 },
+    { name: "Carlos de PR", action: "fez a compra", time: 12 },
+    { name: "Lucia de RS", action: "baixou o e-book", time: 15 },
+    { name: "Pedro de SC", action: "fez a compra", time: 18 },
+    { name: "Fernanda de GO", action: "baixou o e-book", time: 22 }
+  ];
 
-  function nextSlide() {
-    currentSlide = (currentSlide + 1) % totalSlides;
-    updateCarousel();
+  let activityIndex = 0;
+
+  function updateActivityFeed() {
+    const feedContainer = document.getElementById('activity-feed');
+    const activity = activities[activityIndex];
+
+    const activityItem = document.createElement('div');
+    activityItem.className = 'activity-item';
+    activityItem.innerHTML = `
+                <span class="activity-dot"></span>
+                <span class="activity-text">${activity.name} acabou de ${activity.action}</span>
+                <span class="activity-time">há ${activity.time} min</span>
+            `;
+
+    // Remove oldest item if more than 3
+    if (feedContainer.children.length >= 3) {
+      feedContainer.removeChild(feedContainer.lastChild);
+    }
+
+    // Add new item at the top
+    feedContainer.insertBefore(activityItem, feedContainer.firstChild);
+
+    activityIndex = (activityIndex + 1) % activities.length;
   }
 
-  function prevSlide() {
-    currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-    updateCarousel();
+  // Update activity feed every 8 seconds
+  setInterval(updateActivityFeed, 8000);
+
+  // Counter animation for stats
+  function animateCounter(elementId, targetValue, duration = 2000) {
+    const element = document.getElementById(elementId);
+    const startValue = 0;
+    const startTime = performance.now();
+
+    function updateCounter(currentTime) {
+      const elapsedTime = currentTime - startTime;
+      const progress = Math.min(elapsedTime / duration, 1);
+      const currentValue = Math.floor(startValue + (targetValue - startValue) * progress);
+
+      element.textContent = currentValue.toLocaleString();
+
+      if (progress < 1) {
+        requestAnimationFrame(updateCounter);
+      }
+    }
+
+    requestAnimationFrame(updateCounter);
   }
 
-  function updateCarousel() {
-    const track = document.getElementById('carousel-track');
-    track.style.transform = `translateX(-${currentSlide * 100}%)`;
+  // Scarcity Management
+  let currentStock = parseInt(localStorage.getItem('ebook-stock')) || Math.floor(Math.random() * 20) + 15;
+
+  function updateStock() {
+    if (currentStock > 5) {
+      currentStock--;
+      localStorage.setItem('ebook-stock', currentStock);
+      updateStockDisplay();
+    }
   }
 
-  // Auto-advance carousel every 5 seconds
-  setInterval(nextSlide, 5000);
+  function updateStockDisplay() {
+    document.getElementById('stock-left').textContent = currentStock;
+    document.getElementById('stock-display').textContent = currentStock;
+
+    // Update urgency color based on stock level
+    const stockElements = document.querySelectorAll('.stock-number, #stock-left');
+    stockElements.forEach(el => {
+      if (currentStock <= 10) {
+        el.style.color = '#ff4444';
+      } else if (currentStock <= 20) {
+        el.style.color = '#ff8800';
+      }
+    });
+  }
+
+  // Realistic stock decrease
+  function decreaseStock() {
+    if (Math.random() < 0.3 && currentStock > 5) { // 30% chance every interval
+      currentStock--;
+      localStorage.setItem('ebook-stock', currentStock);
+      updateStockDisplay();
+    }
+  }
+
+  // Decrease stock randomly every 30-90 seconds
+  setInterval(decreaseStock, Math.random() * 60000 + 30000);
 
   // Countdown Timer
   function startCountdown() {
@@ -594,8 +899,32 @@
     }, 1000);
   }
 
-  // Initialize countdown on page load
-  startCountdown();
+  // Initialize everything on page load
+  document.addEventListener('DOMContentLoaded', function() {
+    // Initialize stock display
+    updateStockDisplay();
+
+    // Start countdown
+    startCountdown();
+
+    // Animate counters when they come into view
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          setTimeout(() => animateCounter('downloads-counter', 2847), 500);
+          observer.unobserve(entry.target);
+        }
+      });
+    });
+
+    const statsSection = document.querySelector('.stats-counter');
+    if (statsSection) {
+      observer.observe(statsSection);
+    }
+
+    // Initialize activity feed
+    updateActivityFeed();
+  });
 
   // Smooth scrolling for internal links
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -611,11 +940,14 @@
     });
   });
 
-  // Add loading animation to CTA button
+  // Enhanced CTA button interaction
   document.querySelector('.cta-button').addEventListener('click', function() {
     const button = this;
     const originalText = button.textContent;
-    button.textContent = 'Processando...';
+    button.textContent = 'Processando compra...';
+
+    // Update stock when clicking CTA
+    updateStock();
 
     setTimeout(() => {
       button.textContent = originalText;
