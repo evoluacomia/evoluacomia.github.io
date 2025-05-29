@@ -3,126 +3,624 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Ebook '5 Prompts de IA' com bônus de planilha para turbinar campanhas de marketing - Profissionais de marketing digital." />
-  <meta property="og:title" content="5 Prompts de IA para Turbinar Suas Campanhas" />
-  <meta property="og:description" content="Descubra como usar IA para aumentar conversões com prompts testados e planilha bônus." />
-  <meta property="og:image" content="/mnt/data/20250524_0940_Ebook%20Marketing%20IA%203D_simple_compose_01jw14vyf9ew5bfej7cfqgfsek.png" />
+  <meta name="description" content="Ebook com 5 prompts de IA para otimizar campanhas de marketing">
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="5 Prompts de IA para Turbinar Suas Campanhas de Marketing">
+  <meta property="og:description" content="Descubra como aplicar inteligência artificial para aumentar conversões e otimizar estratégias de marketing digital.">
+  <meta property="og:image" content="assets/book_cover.png">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://evoluacomia.com/ebook">
+  <meta property="og:locale" content="pt_BR">
+
   <title>5 Prompts de IA para Turbinar Suas Campanhas de Marketing</title>
+
   <style>
+    /* CSS Variables */
     :root {
       --primary-color: #00e3c1;
       --dark-bg: #08101a;
       --text-color: #ffffff;
       --accent-bg: #0f1a26;
+      --gradient-bg: linear-gradient(135deg, #08101a 0%, #0f1a26 100%);
     }
-    * { scroll-behavior: smooth; box-sizing: border-box; }
-    body { margin:0; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background:var(--dark-bg); color:var(--text-color); }
-    header { background:var(--dark-bg); text-align:center; padding:60px 20px; }
-    header img.logo { height:60px; margin-bottom:20px; }
-    header h1 { font-size:2.8rem; color:var(--primary-color); }
-    header p { font-size:1.2rem; color:#d0f8f2; max-width:600px; margin:10px auto; }
-    .ebook-cover { text-align:center; margin-top:-40px; }
-    .ebook-cover img { max-width:300px; border-radius:10px; box-shadow:0 4px 20px rgba(0,0,0,0.5); loading:lazy; }
-    section { padding:60px 20px; max-width:900px; margin:auto; }
-    section h2 { color:var(--primary-color); font-size:2rem; margin-bottom:20px; }
-    .benefits ul { list-style:none; padding:0; }
-    .benefits li { display:flex; align-items:flex-start; background:var(--accent-bg); padding:20px; margin-bottom:12px; border-left:5px solid var(--primary-color); border-radius:5px; transition:transform .3s; }
-    .benefits li:hover { transform:translateX(5px); }
-    .benefits li .icon { font-size:1.5rem; margin-right:15px; color:var(--primary-color); flex-shrink:0; }
-    .bonus, .cta, .faq { background:var(--accent-bg); padding:30px; border-radius:10px; margin-top:40px; }
-    .bonus p strong { color:var(--primary-color); }
-    /* Carousel testimonials */
-    .testimonials { position:relative; overflow:hidden; }
-    .slides { display:flex; transition:transform .5s ease; }
-    .slide { min-width:100%; box-sizing:border-box; padding:20px; }
-    .slide blockquote { margin:0; border-left:4px solid var(--primary-color); padding-left:20px; color:#d0f8f2; font-style:italic; }
-    .carousel-controls { text-align:center; margin-top:10px; }
-    .carousel-controls button { background:none; border:1px solid var(--primary-color); color:var(--primary-color); padding:5px 10px; margin:0 5px; cursor:pointer; border-radius:3px; }
-    /* FAQ details */
-    .faq details { margin-bottom:15px; }
-    .faq summary { cursor:pointer; font-weight:bold; color:var(--primary-color); }
-    /* CTA urgency timer */
-    .timer { font-size:1.1rem; color:#ff6b6b; margin-top:10px; }
-    .cta a { background-color:var(--primary-color); color:var(--dark-bg); padding:15px 30px; border-radius:5px; text-decoration:none; font-weight:bold; font-size:1.2rem; transition:background .3s; display:inline-block; margin-top:10px; }
-    .cta a:hover { background-color:#00ccb0; }
-    footer { text-align:center; padding:20px; background:#061018; color:#99b8b3; }
-    footer a { color:#99b8b3; margin:0 10px; text-decoration:none; font-size:0.9rem; }
-    @media(max-width:600px){header h1{font-size:2rem;}header p{font-size:1rem;}.ebook-cover img{max-width:90%;}}
+
+    /* Reset and Base Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      background: var(--dark-bg);
+      color: var(--text-color);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Header Styles */
+    .header {
+      padding: 2rem 0;
+      text-align: center;
+      background: var(--gradient-bg);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle at 30% 40%, rgba(0, 227, 193, 0.1) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .logo {
+      max-width: 200px;
+      height: auto;
+      margin-bottom: 2rem;
+      filter: drop-shadow(0 4px 12px rgba(0, 227, 193, 0.3));
+    }
+
+    .headline {
+      font-size: 3.5rem;
+      font-weight: 800;
+      color: var(--primary-color);
+      margin-bottom: 1rem;
+      text-shadow: 0 4px 20px rgba(0, 227, 193, 0.4);
+      background: linear-gradient(135deg, var(--primary-color) 0%, #00b8a8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .subheadline {
+      font-size: 1.4rem;
+      color: #e0e0e0;
+      max-width: 800px;
+      margin: 0 auto;
+      font-weight: 300;
+    }
+
+    /* E-book Cover Section */
+    .ebook-section {
+      padding: 4rem 0;
+      text-align: center;
+      background: var(--dark-bg);
+    }
+
+    .ebook-cover {
+      max-width: 400px;
+      height: auto;
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(0, 227, 193, 0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .ebook-cover:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 30px 80px rgba(0, 227, 193, 0.3);
+    }
+
+    /* Benefits Section */
+    .benefits-section {
+      padding: 4rem 0;
+      background: var(--accent-bg);
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      color: var(--primary-color);
+      text-align: center;
+      margin-bottom: 3rem;
+      font-weight: 700;
+    }
+
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .benefit-item {
+      background: var(--dark-bg);
+      padding: 2rem;
+      border-radius: 15px;
+      border-left: 4px solid var(--primary-color);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .benefit-item::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, rgba(0, 227, 193, 0.05) 0%, transparent 50%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .benefit-item:hover {
+      transform: translateX(5px);
+      box-shadow: 0 10px 30px rgba(0, 227, 193, 0.2);
+    }
+
+    .benefit-item:hover::before {
+      opacity: 1;
+    }
+
+    .benefit-icon {
+      font-size: 1.5rem;
+      margin-right: 1rem;
+    }
+
+    .benefit-text {
+      font-size: 1.1rem;
+      font-weight: 500;
+    }
+
+    /* Bonus Section */
+    .bonus-section {
+      padding: 4rem 0;
+      text-align: center;
+      background: var(--gradient-bg);
+    }
+
+    .bonus-text {
+      font-size: 1.3rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Testimonials Carousel */
+    .testimonials-section {
+      padding: 4rem 0;
+      background: var(--dark-bg);
+    }
+
+    .carousel-container {
+      position: relative;
+      max-width: 800px;
+      margin: 0 auto;
+      overflow: hidden;
+      border-radius: 20px;
+    }
+
+    .carousel-track {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .slide {
+      min-width: 100%;
+      background: var(--accent-bg);
+      padding: 3rem 2rem;
+      text-align: center;
+      border-radius: 20px;
+      margin: 0 1rem;
+    }
+
+    .testimonial-text {
+      font-size: 1.2rem;
+      font-style: italic;
+      margin-bottom: 1.5rem;
+      color: #e0e0e0;
+    }
+
+    .testimonial-author {
+      font-weight: 600;
+      color: var(--primary-color);
+    }
+
+    .carousel-nav {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .nav-btn {
+      background: var(--primary-color);
+      color: var(--dark-bg);
+      border: none;
+      padding: 0.8rem 1.5rem;
+      border-radius: 25px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .nav-btn:hover {
+      background: #00b8a8;
+      transform: translateY(-2px);
+    }
+
+    /* FAQ Section */
+    .faq-section {
+      padding: 4rem 0;
+      background: var(--accent-bg);
+    }
+
+    .faq-item {
+      background: var(--dark-bg);
+      margin-bottom: 1rem;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .faq-summary {
+      padding: 1.5rem;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 1.1rem;
+      border-left: 4px solid var(--primary-color);
+      transition: background-color 0.3s ease;
+    }
+
+    .faq-summary:hover {
+      background: rgba(0, 227, 193, 0.1);
+    }
+
+    .faq-content {
+      padding: 0 1.5rem 1.5rem 1.5rem;
+      color: #e0e0e0;
+    }
+
+    /* CTA Section */
+    .cta-section {
+      padding: 4rem 0;
+      text-align: center;
+      background: var(--gradient-bg);
+      position: relative;
+    }
+
+    .countdown {
+      background: rgba(255, 0, 0, 0.1);
+      border: 2px solid #ff4444;
+      border-radius: 15px;
+      padding: 1.5rem;
+      margin: 2rem auto;
+      max-width: 400px;
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+
+    .countdown-timer {
+      color: #ff4444;
+      font-size: 1.5rem;
+      font-weight: 800;
+    }
+
+    .cta-button {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--primary-color) 0%, #00b8a8 100%);
+      color: var(--dark-bg);
+      padding: 1.5rem 3rem;
+      font-size: 1.3rem;
+      font-weight: 700;
+      text-decoration: none;
+      border-radius: 50px;
+      transition: all 0.3s ease;
+      box-shadow: 0 10px 30px rgba(0, 227, 193, 0.3);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .cta-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 40px rgba(0, 227, 193, 0.4);
+    }
+
+    .cta-note {
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      color: #ccc;
+    }
+
+    /* Footer */
+    .footer {
+      padding: 2rem 0;
+      background: var(--dark-bg);
+      text-align: center;
+      border-top: 1px solid var(--accent-bg);
+    }
+
+    .footer-links {
+      margin-bottom: 1rem;
+    }
+
+    .footer-links a {
+      color: var(--primary-color);
+      text-decoration: none;
+      margin: 0 1rem;
+      transition: color 0.3s ease;
+    }
+
+    .footer-links a:hover {
+      color: #00b8a8;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .headline {
+        font-size: 2.5rem;
+      }
+
+      .subheadline {
+        font-size: 1.2rem;
+      }
+
+      .section-title {
+        font-size: 2rem;
+      }
+
+      .benefits-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .slide {
+        padding: 2rem 1rem;
+      }
+
+      .cta-button {
+        padding: 1.2rem 2rem;
+        font-size: 1.1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        padding: 0 15px;
+      }
+
+      .headline {
+        font-size: 2rem;
+      }
+
+      .ebook-cover {
+        max-width: 300px;
+      }
+
+      .benefit-item {
+        padding: 1.5rem;
+      }
+    }
   </style>
 </head>
 <body>
-  <header>
-    <img src="/mnt/data/WhatsApp%20Image%202025-05-28%20at%2020.45.35.jpeg" alt="Logo Evolua com IA" class="logo" loading="lazy">
-    <h1>Impulsione suas campanhas com IA</h1>
-    <p>Descubra como aplicar inteligência artificial para aumentar suas conversões e otimizar suas estratégias – por apenas R$14,90!</p>
-  </header>
-  <div class="ebook-cover">
-    <img src="/mnt/data/20250524_0940_Ebook%20Marketing%20IA%203D_simple_compose_01jw14vyf9ew5bfej7cfqgfsek.png" alt="Capa do E-book" loading="lazy">
+<!-- Header Section -->
+<header class="header">
+  <div class="container">
+    <!-- Logo placeholder - replace with actual logo -->
+    <img src="assets/logo.png" alt="Evolua com IA" class="logo" loading="lazy">
+
+    <h1 class="headline">Impulsione suas campanhas com IA</h1>
+    <p class="subheadline">Descubra como aplicar inteligência artificial para aumentar suas conversões e otimizar suas estratégias – por apenas R$14,90!</p>
   </div>
-  <section class="benefits">
-    <h2>O que você vai conquistar:</h2>
-    <ul>
-      <li><span class="icon">✔️</span><span>Crie anúncios impactantes em segundos.</span></li>
-      <li><span class="icon">⚡</span><span>Economize horas na criação de conteúdo.</span></li>
-      <li><span class="icon">📈</span><span>Aumente suas conversões com prompts prontos.</span></li>
-      <li><span class="icon">🤖</span><span>Fácil de aplicar mesmo para iniciantes em IA.</span></li>
-    </ul>
-  </section>
-  <section class="bonus">
-    <h2>Bônus Especial</h2>
-    <p>Receba uma <strong>planilha prática com todos os prompts</strong> prontos para usar imediatamente em suas campanhas. Um verdadeiro acelerador de resultados!</p>
-  </section>
-  <section class="testimonials">
-    <h2>Profissionais já estão transformando seus resultados</h2>
-    <div class="slides">
-      <div class="slide"><blockquote>"Em 2 semanas, minha taxa de conversão aumentou 20% com esses prompts!"<br>— Camila Lima, Social Media</blockquote></div>
-      <div class="slide"><blockquote>"Consegui montar 20 variações de anúncio em menos de 10 minutos. Game changer!"<br>— Felipe Rocha, Gestor de Tráfego Pago</blockquote></div>
+</header>
+
+<!-- E-book Cover Section -->
+<section class="ebook-section">
+  <div class="container">
+    <!-- E-book cover placeholder - replace with actual cover image -->
+    <img src="assets/book_cover.jpeg" alt="Capa do E-book: 5 Prompts de IA Poderosos" class="ebook-cover" loading="lazy">
+  </div>
+</section>
+
+<!-- Benefits Section -->
+<section class="benefits-section">
+  <div class="container">
+    <h2 class="section-title">O que você vai descobrir:</h2>
+    <div class="benefits-grid">
+      <div class="benefit-item">
+        <span class="benefit-icon">✔️</span>
+        <span class="benefit-text">5 prompts testados e aprovados para criar campanhas de alta conversão</span>
+      </div>
+      <div class="benefit-item">
+        <span class="benefit-icon">⚡</span>
+        <span class="benefit-text">Técnicas avançadas para otimizar seus anúncios automaticamente</span>
+      </div>
+      <div class="benefit-item">
+        <span class="benefit-icon">📈</span>
+        <span class="benefit-text">Estratégias comprovadas para aumentar o ROI das suas campanhas</span>
+      </div>
+      <div class="benefit-item">
+        <span class="benefit-icon">🤖</span>
+        <span class="benefit-text">Como usar IA para personalizar mensagens e aumentar engajamento</span>
+      </div>
     </div>
-    <div class="carousel-controls">
-      <button onclick="prevSlide()">Anterior</button>
-      <button onclick="nextSlide()">Próximo</button>
+  </div>
+</section>
+
+<!-- Bonus Section -->
+<section class="bonus-section">
+  <div class="container">
+    <h2 class="section-title">Bônus Especial</h2>
+    <p class="bonus-text">Além dos 5 prompts poderosos, você receberá uma <strong>planilha prática com todos os prompts</strong> organizados e prontos para usar, economizando horas de trabalho!</p>
+  </div>
+</section>
+
+<!-- Testimonials Carousel -->
+<section class="testimonials-section">
+  <div class="container">
+    <h2 class="section-title">O que nossos clientes dizem:</h2>
+    <div class="carousel-container">
+      <div class="carousel-track" id="carousel-track">
+        <div class="slide">
+          <p class="testimonial-text">"Depois de aplicar os prompts do e-book, minhas campanhas tiveram um aumento de 40% na taxa de conversão. Simplesmente incrível!"</p>
+          <p class="testimonial-author">— Ana Silva, Empreendedora Digital</p>
+        </div>
+        <div class="slide">
+          <p class="testimonial-text">"Os prompts são muito práticos e fáceis de implementar. Em menos de uma semana já vi resultados significativos nas minhas campanhas."</p>
+          <p class="testimonial-author">— Carlos Oliveira, Gestor de Marketing</p>
+        </div>
+      </div>
+      <div class="carousel-nav">
+        <button class="nav-btn" onclick="prevSlide()">Anterior</button>
+        <button class="nav-btn" onclick="nextSlide()">Próximo</button>
+      </div>
     </div>
-  </section>
-  <section class="faq">
-    <h2>Dúvidas Frequentes</h2>
-    <details><summary>Como recebo o e-book?</summary><p>Após a compra, você receberá um link imediato para download em seu e-mail.</p></details>
-    <details><summary>Preciso saber usar IA?</summary><p>Não! O material é direto, didático e ideal até mesmo para iniciantes.</p></details>
-    <details><summary>Posso aplicar os prompts em qualquer nicho?</summary><p>Sim! Os prompts foram pensados para serem adaptáveis a qualquer tipo de negócio.</p></details>
-  </section>
-  <section class="cta">
-    <h2>Garanta seu e-book por apenas R$14,90</h2>
-    <div class="timer" id="timer"></div>
-    <a href="https://pay.hotmart.com/Y99717508D?off=fxlt3f4n" target="_blank" rel="noopener noreferrer">Comprar agora</a>
-    <p><em>*Download imediato após a compra.</em></p>
-  </section>
-  <footer>
-    <a href="#">Política de Privacidade</a> | <a href="#">Termos de Uso</a>
-    <p>© 2025 Evolua com IA. Todos os direitos reservados.</p>
-  </footer>
-  <script>
-    // Carousel
-    let current = 0;
-    const slides = document.querySelectorAll('.slide');
-    function showSlide(index) {
-      const total = slides.length;
-      current = (index + total) % total;
-      document.querySelector('.slides').style.transform = `translateX(-${current * 100}%)`;
-    }
-    function nextSlide() { showSlide(current + 1); }
-    function prevSlide() { showSlide(current - 1); }
-    // Countdown Timer (24h)
-    const endTime = new Date().getTime() + 24*60*60*1000;
-    function updateTimer() {
+  </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="faq-section">
+  <div class="container">
+    <h2 class="section-title">Perguntas Frequentes</h2>
+    <div class="faq-item">
+      <details>
+        <summary class="faq-summary">Como recebo o e-book após a compra?</summary>
+        <div class="faq-content">
+          <p>Você receberá o download imediatamente após a confirmação do pagamento, diretamente em seu e-mail.</p>
+        </div>
+      </details>
+    </div>
+    <div class="faq-item">
+      <details>
+        <summary class="faq-summary">Os prompts funcionam para qualquer tipo de negócio?</summary>
+        <div class="faq-content">
+          <p>Sim! Os prompts foram desenvolvidos para serem versáteis e podem ser adaptados para qualquer nicho ou segmento de mercado.</p>
+        </div>
+      </details>
+    </div>
+    <div class="faq-item">
+      <details>
+        <summary class="faq-summary">Preciso de conhecimento técnico para usar?</summary>
+        <div class="faq-content">
+          <p>Não! O e-book foi criado para ser prático e acessível, com instruções claras e exemplos reais de aplicação.</p>
+        </div>
+      </details>
+    </div>
+    <div class="faq-item">
+      <details>
+        <summary class="faq-summary">Há garantia de satisfação?</summary>
+        <div class="faq-content">
+          <p>Sim, oferecemos 7 dias de garantia incondicional. Se não ficar satisfeito, devolvemos seu dinheiro.</p>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Section with Countdown -->
+<section class="cta-section">
+  <div class="container">
+    <h2 class="section-title">Transforme suas campanhas por apenas R$ 14,90</h2>
+
+    <div class="countdown">
+      <p>⏰ Oferta expira em:</p>
+      <div class="countdown-timer" id="countdown-timer">24h 00m 00s</div>
+    </div>
+
+    <a href="https://pay.hotmart.com/Y99717508D?off=fxlt3f4n" class="cta-button" target="_blank">
+      Comprar Agora
+    </a>
+
+    <p class="cta-note">*Download imediato após a compra.</p>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-links">
+      <a href="#privacy">Política de Privacidade</a>
+      <a href="#terms">Termos de Uso</a>
+    </div>
+    <p>&copy; 2025 Evolua com IA. Todos os direitos reservados.</p>
+  </div>
+</footer>
+
+<script>
+  // Carousel functionality
+  let currentSlide = 0;
+  const slides = document.querySelectorAll('.slide');
+  const totalSlides = slides.length;
+
+  function nextSlide() {
+    currentSlide = (currentSlide + 1) % totalSlides;
+    updateCarousel();
+  }
+
+  function prevSlide() {
+    currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+    updateCarousel();
+  }
+
+  function updateCarousel() {
+    const track = document.getElementById('carousel-track');
+    track.style.transform = `translateX(-${currentSlide * 100}%)`;
+  }
+
+  // Auto-advance carousel every 5 seconds
+  setInterval(nextSlide, 5000);
+
+  // Countdown Timer
+  function startCountdown() {
+    // Set countdown for 24 hours from now
+    const countdownTime = new Date().getTime() + (24 * 60 * 60 * 1000);
+
+    const timer = setInterval(function() {
       const now = new Date().getTime();
-      const diff = endTime - now;
-      if (diff <= 0) return document.getElementById('timer').innerText = 'Oferta encerrada';
-      const h = Math.floor(diff/(1000*60*60));
-      const m = Math.floor((diff%(1000*60*60))/(1000*60));
-      const s = Math.floor((diff%(1000*60))/(1000));
-      document.getElementById('timer').innerText = `Oferta expira em ${h}h ${m}m ${s}s`;
-    }
-    setInterval(updateTimer,1000);
-    updateTimer();
-  </script>
+      const distance = countdownTime - now;
+
+      const hours = Math.floor(distance / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById('countdown-timer').textContent =
+              `${hours.toString().padStart(2, '0')}h ${minutes.toString().padStart(2, '0')}m ${seconds.toString().padStart(2, '0')}s`;
+
+      if (distance < 0) {
+        clearInterval(timer);
+        document.getElementById('countdown-timer').textContent = "Oferta expirada!";
+      }
+    }, 1000);
+  }
+
+  // Initialize countdown on page load
+  startCountdown();
+
+  // Smooth scrolling for internal links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    });
+  });
+
+  // Add loading animation to CTA button
+  document.querySelector('.cta-button').addEventListener('click', function() {
+    const button = this;
+    const originalText = button.textContent;
+    button.textContent = 'Processando...';
+
+    setTimeout(() => {
+      button.textContent = originalText;
+    }, 2000);
+  });
+</script>
 </body>
 </html>
