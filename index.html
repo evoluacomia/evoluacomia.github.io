@@ -68,12 +68,12 @@
         }
 
         .logo {
-            max-width: 200px;
+            max-width: 160px;
             height: auto;
-            margin-bottom: 2rem;
+            margin-bottom: 1rem;
             filter: drop-shadow(0 4px 12px rgba(0, 227, 193, 0.3));
+            border-radius: 17px;
         }
-
         .headline {
             font-size: 3.5rem;
             font-weight: 800;
@@ -596,6 +596,13 @@
         <img src="assets/book_cover.jpeg" alt="Capa do E-book: 5 Prompts de IA Poderosos" class="ebook-cover"
              loading="lazy">
     </div>
+   <br>
+    <a href="https://pay.hotmart.com/Y99717508D?off=fxlt3f4n" class="cta-button" target="_blank"
+       onclick="updateStock()">
+        Garantir Minha Cópia Agora
+    </a>
+
+    <p class="cta-note">*Download imediato após a compra.</p>
 </section>
 
 <!-- Benefits Section -->
@@ -729,6 +736,33 @@
     </div>
 </section>
 
+
+
+<!-- CTA Section with Countdown and Scarcity -->
+<section class="cta-section">
+    <div class="container">
+        <h2 class="section-title">Transforme suas campanhas por apenas R$ 14,90</h2>
+
+        <!-- Stock Counter -->
+        <div class="stock-counter">
+            <div class="stock-number" id="stock-display">23</div>
+            <div class="stock-text">cópias restantes nesta promoção</div>
+        </div>
+
+        <div class="countdown">
+            <p>⏰ Oferta expira em:</p>
+            <div class="countdown-timer" id="countdown-timer">24h 00m 00s</div>
+        </div>
+
+        <a href="https://pay.hotmart.com/Y99717508D?off=fxlt3f4n" class="cta-button" target="_blank"
+           onclick="updateStock()">
+            Garantir Minha Cópia Agora
+        </a>
+
+        <p class="cta-note">*Download imediato após a compra.</p>
+    </div>
+</section>
+
 <!-- FAQ Section -->
 <section class="faq-section">
     <div class="container">
@@ -769,31 +803,6 @@
                 </div>
             </details>
         </div>
-    </div>
-</section>
-
-<!-- CTA Section with Countdown and Scarcity -->
-<section class="cta-section">
-    <div class="container">
-        <h2 class="section-title">Transforme suas campanhas por apenas R$ 14,90</h2>
-
-        <!-- Stock Counter -->
-        <div class="stock-counter">
-            <div class="stock-number" id="stock-display">23</div>
-            <div class="stock-text">cópias restantes nesta promoção</div>
-        </div>
-
-        <div class="countdown">
-            <p>⏰ Oferta expira em:</p>
-            <div class="countdown-timer" id="countdown-timer">24h 00m 00s</div>
-        </div>
-
-        <a href="https://pay.hotmart.com/Y99717508D?off=fxlt3f4n" class="cta-button" target="_blank"
-           onclick="updateStock()">
-            Garantir Minha Cópia Agora
-        </a>
-
-        <p class="cta-note">*Download imediato após a compra.</p>
     </div>
 </section>
 
@@ -959,7 +968,7 @@
     // Countdown Timer
     function startCountdown() {
         // Set countdown for 24 hours from now
-        const countdownTime = new Date().getTime() + (24 * 60 * 60 * 1000);
+        const countdownTime = new Date().getTime() + (19 * 60 * 50 * 1000);
 
         const timer = setInterval(function () {
             const now = new Date().getTime();
