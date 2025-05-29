@@ -1,958 +1,1038 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Ebook com 5 prompts de IA para otimizar campanhas de marketing">
-
-  <!-- Open Graph Meta Tags -->
-  <meta property="og:title" content="5 Prompts de IA para Turbinar Suas Campanhas de Marketing">
-  <meta property="og:description" content="Descubra como aplicar inteligência artificial para aumentar conversões e otimizar estratégias de marketing digital.">
-  <meta property="og:image" content="assets/book_cover.png">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://evoluacomia.github.io">
-  <meta property="og:locale" content="pt_BR">
-
-  <title>5 Prompts de IA para Turbinar Suas Campanhas de Marketing</title>
-
-  <style>
-    /* CSS Variables */
-    :root {
-      --primary-color: #00e3c1;
-      --dark-bg: #08101a;
-      --text-color: #ffffff;
-      --accent-bg: #0f1a26;
-      --gradient-bg: linear-gradient(135deg, #08101a 0%, #0f1a26 100%);
-    }
-
-    /* Reset and Base Styles */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-      background: var(--dark-bg);
-      color: var(--text-color);
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-
-    /* Header Styles */
-    .header {
-      padding: 2rem 0;
-      text-align: center;
-      background: var(--gradient-bg);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .header::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: radial-gradient(circle at 30% 40%, rgba(0, 227, 193, 0.1) 0%, transparent 50%);
-      pointer-events: none;
-    }
-
-    .logo {
-      max-width: 200px;
-      height: auto;
-      margin-bottom: 2rem;
-      filter: drop-shadow(0 4px 12px rgba(0, 227, 193, 0.3));
-    }
-
-    .headline {
-      font-size: 3.5rem;
-      font-weight: 800;
-      color: var(--primary-color);
-      margin-bottom: 1rem;
-      text-shadow: 0 4px 20px rgba(0, 227, 193, 0.4);
-      background: linear-gradient(135deg, var(--primary-color) 0%, #00b8a8 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .subheadline {
-      font-size: 1.4rem;
-      color: #e0e0e0;
-      max-width: 800px;
-      margin: 0 auto;
-      font-weight: 300;
-    }
-
-    /* E-book Cover Section */
-    .ebook-section {
-      padding: 4rem 0;
-      text-align: center;
-      background: var(--dark-bg);
-    }
-
-    .ebook-cover {
-      max-width: 400px;
-      height: auto;
-      border-radius: 20px;
-      box-shadow: 0 20px 60px rgba(0, 227, 193, 0.2);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .ebook-cover:hover {
-      transform: translateY(-10px) scale(1.02);
-      box-shadow: 0 30px 80px rgba(0, 227, 193, 0.3);
-    }
-
-    /* Benefits Section */
-    .benefits-section {
-      padding: 4rem 0;
-      background: var(--accent-bg);
-    }
-
-    .section-title {
-      font-size: 2.5rem;
-      color: var(--primary-color);
-      text-align: center;
-      margin-bottom: 3rem;
-      font-weight: 700;
-    }
-
-    .benefits-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1rem;
-      margin-top: 2rem;
-    }
-
-    .benefit-item {
-      background: var(--dark-bg);
-      padding: 2rem;
-      border-radius: 15px;
-      border-left: 4px solid var(--primary-color);
-      transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .benefit-item::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: linear-gradient(135deg, rgba(0, 227, 193, 0.05) 0%, transparent 50%);
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-
-    .benefit-item:hover {
-      transform: translateX(5px);
-      box-shadow: 0 10px 30px rgba(0, 227, 193, 0.2);
-    }
-
-    .benefit-item:hover::before {
-      opacity: 1;
-    }
-
-    .benefit-icon {
-      font-size: 1.5rem;
-      margin-right: 1rem;
-    }
-
-    .benefit-text {
-      font-size: 1.1rem;
-      font-weight: 500;
-    }
-
-    /* Bonus Section */
-    .bonus-section {
-      padding: 4rem 0;
-      text-align: center;
-      background: var(--gradient-bg);
-    }
-
-    .bonus-text {
-      font-size: 1.3rem;
-      max-width: 600px;
-      margin: 0 auto;
-    }
-
-    /* Enhanced Social Proof Styles */
-    .stats-counter {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 2rem;
-      margin: 3rem 0;
-      text-align: center;
-    }
-
-    .stat-item {
-      background: var(--accent-bg);
-      padding: 2rem 1rem;
-      border-radius: 15px;
-      border: 2px solid transparent;
-      transition: all 0.3s ease;
-    }
-
-    .stat-item:hover {
-      border-color: var(--primary-color);
-      transform: translateY(-5px);
-    }
-
-    .stat-number {
-      font-size: 3rem;
-      font-weight: 800;
-      color: var(--primary-color);
-      margin-bottom: 0.5rem;
-    }
-
-    .stat-label {
-      font-size: 1rem;
-      color: #e0e0e0;
-      font-weight: 500;
-    }
-
-    .testimonials-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-      gap: 2rem;
-      margin: 3rem 0;
-    }
-
-    .testimonial-card {
-      background: var(--accent-bg);
-      padding: 2rem;
-      border-radius: 20px;
-      border-left: 4px solid var(--primary-color);
-      transition: all 0.3s ease;
-      position: relative;
-    }
-
-    .testimonial-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 15px 40px rgba(0, 227, 193, 0.2);
-    }
-
-    .testimonial-header {
-      display: flex;
-      align-items: center;
-      margin-bottom: 1.5rem;
-    }
-
-    .client-photo {
-      margin-right: 1rem;
-    }
-
-    .client-photo img {
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      border: 3px solid var(--primary-color);
-    }
-
-    .client-info {
-      flex: 1;
-    }
-
-    .client-name {
-      font-weight: 700;
-      font-size: 1.1rem;
-      color: var(--text-color);
-      margin-bottom: 0.2rem;
-    }
-
-    .client-title {
-      font-size: 0.9rem;
-      color: #b0b0b0;
-      margin-bottom: 0.5rem;
-    }
-
-    .rating {
-      color: #ffd700;
-      font-size: 1.1rem;
-    }
-
-    .testimonial-text {
-      font-size: 1rem;
-      line-height: 1.6;
-      color: #e0e0e0;
-      margin-bottom: 1.5rem;
-    }
-
-    .result-highlight {
-      background: rgba(0, 227, 193, 0.1);
-      padding: 0.8rem 1rem;
-      border-radius: 10px;
-      border-left: 3px solid var(--primary-color);
-    }
-
-    .result-label {
-      font-size: 0.9rem;
-      color: #b0b0b0;
-      margin-right: 0.5rem;
-    }
-
-    .result-value {
-      font-weight: 700;
-      color: var(--primary-color);
-      font-size: 1rem;
-    }
-
-    .activity-feed {
-      background: var(--dark-bg);
-      border-radius: 15px;
-      padding: 1.5rem;
-      margin-top: 3rem;
-      text-align: left;
-    }
-
-    .activity-item {
-      display: flex;
-      align-items: center;
-      padding: 0.8rem 0;
-      border-bottom: 1px solid var(--accent-bg);
-      animation: fadeInActivity 0.5s ease-in-out;
-    }
-
-    .activity-item:last-child {
-      border-bottom: none;
-    }
-
-    .activity-dot {
-      width: 8px;
-      height: 8px;
-      background: var(--primary-color);
-      border-radius: 50%;
-      margin-right: 1rem;
-      animation: pulse 2s infinite;
-    }
-
-    .activity-text {
-      flex: 1;
-      font-size: 0.9rem;
-      color: #e0e0e0;
-    }
-
-    .activity-time {
-      font-size: 0.8rem;
-      color: #888;
-    }
-
-    @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.5; }
-    }
-
-    @keyframes fadeInActivity {
-      from { opacity: 0; transform: translateX(-20px); }
-      to { opacity: 1; transform: translateX(0); }
-    }
-
-    /* Scarcity Alert Styles */
-    .scarcity-alert {
-      background: linear-gradient(135deg, #ff4444 0%, #cc0000 100%);
-      color: white;
-      padding: 1rem;
-      text-align: center;
-      font-weight: 600;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      box-shadow: 0 4px 20px rgba(255, 68, 68, 0.3);
-    }
-
-    .scarcity-alert .blink {
-      animation: blink 1s infinite;
-    }
-
-    @keyframes blink {
-      0%, 50% { opacity: 1; }
-      51%, 100% { opacity: 0.7; }
-    }
-
-    .stock-counter {
-      background: rgba(255, 255, 255, 0.1);
-      border: 2px solid rgba(255, 255, 255, 0.3);
-      border-radius: 15px;
-      padding: 1.5rem;
-      margin: 2rem auto;
-      max-width: 400px;
-      text-align: center;
-    }
-
-    .stock-number {
-      font-size: 2.5rem;
-      font-weight: 800;
-      color: #ff4444;
-      text-shadow: 0 2px 10px rgba(255, 68, 68, 0.5);
-    }
-
-    .stock-text {
-      font-size: 1.1rem;
-      margin-top: 0.5rem;
-    }
-
-    /* FAQ Section */
-    .faq-section {
-      padding: 4rem 0;
-      background: var(--accent-bg);
-    }
-
-    .faq-item {
-      background: var(--dark-bg);
-      margin-bottom: 1rem;
-      border-radius: 10px;
-      overflow: hidden;
-    }
-
-    .faq-summary {
-      padding: 1.5rem;
-      cursor: pointer;
-      font-weight: 600;
-      font-size: 1.1rem;
-      border-left: 4px solid var(--primary-color);
-      transition: background-color 0.3s ease;
-    }
-
-    .faq-summary:hover {
-      background: rgba(0, 227, 193, 0.1);
-    }
-
-    .faq-content {
-      padding: 0 1.5rem 1.5rem 1.5rem;
-      color: #e0e0e0;
-    }
-
-    /* CTA Section */
-    .cta-section {
-      padding: 4rem 0;
-      text-align: center;
-      background: var(--gradient-bg);
-      position: relative;
-    }
-
-    .countdown {
-      background: rgba(255, 0, 0, 0.1);
-      border: 2px solid #ff4444;
-      border-radius: 15px;
-      padding: 1.5rem;
-      margin: 2rem auto;
-      max-width: 400px;
-      font-size: 1.2rem;
-      font-weight: 600;
-    }
-
-    .countdown-timer {
-      color: #ff4444;
-      font-size: 1.5rem;
-      font-weight: 800;
-    }
-
-    .cta-button {
-      display: inline-block;
-      background: linear-gradient(135deg, var(--primary-color) 0%, #00b8a8 100%);
-      color: var(--dark-bg);
-      padding: 1.5rem 3rem;
-      font-size: 1.3rem;
-      font-weight: 700;
-      text-decoration: none;
-      border-radius: 50px;
-      transition: all 0.3s ease;
-      box-shadow: 0 10px 30px rgba(0, 227, 193, 0.3);
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-
-    .cta-button:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 15px 40px rgba(0, 227, 193, 0.4);
-    }
-
-    .cta-note {
-      margin-top: 1rem;
-      font-size: 0.9rem;
-      color: #ccc;
-    }
-
-    /* Footer */
-    .footer {
-      padding: 2rem 0;
-      background: var(--dark-bg);
-      text-align: center;
-      border-top: 1px solid var(--accent-bg);
-    }
-
-    .footer-links {
-      margin-bottom: 1rem;
-    }
-
-    .footer-links a {
-      color: var(--primary-color);
-      text-decoration: none;
-      margin: 0 1rem;
-      transition: color 0.3s ease;
-    }
-
-    .footer-links a:hover {
-      color: #00b8a8;
-    }
-
-    /* Responsive Design */
-    @media (max-width: 768px) {
-      .headline {
-        font-size: 2.5rem;
-      }
-
-      .subheadline {
-        font-size: 1.2rem;
-      }
-
-      .section-title {
-        font-size: 2rem;
-      }
-
-      .benefits-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .slide {
-        padding: 2rem 1rem;
-      }
-
-      .cta-button {
-        padding: 1.2rem 2rem;
-        font-size: 1.1rem;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .container {
-        padding: 0 15px;
-      }
-
-      .headline {
-        font-size: 2rem;
-      }
-
-      .ebook-cover {
-        max-width: 300px;
-      }
-
-      .benefit-item {
-        padding: 1.5rem;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ebook com 5 prompts de IA para otimizar campanhas de marketing">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="5 Prompts de IA para Turbinar Suas Campanhas de Marketing">
+    <meta property="og:description"
+          content="Descubra como aplicar inteligência artificial para aumentar conversões e otimizar estratégias de marketing digital.">
+    <meta property="og:image" content="assets/book_cover.png">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://evoluacomia.github.io">
+    <meta property="og:locale" content="pt_BR">
+
+    <title>5 Prompts de IA para Turbinar Suas Campanhas de Marketing</title>
+
+    <style>
+        /* CSS Variables */
+        :root {
+            --primary-color: #00e3c1;
+            --dark-bg: #08101a;
+            --text-color: #ffffff;
+            --accent-bg: #0f1a26;
+            --gradient-bg: linear-gradient(135deg, #08101a 0%, #0f1a26 100%);
+        }
+
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: var(--dark-bg);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        .header {
+            padding: 2rem 0;
+            text-align: center;
+            background: var(--gradient-bg);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 40%, rgba(0, 227, 193, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .logo {
+            max-width: 200px;
+            height: auto;
+            margin-bottom: 2rem;
+            filter: drop-shadow(0 4px 12px rgba(0, 227, 193, 0.3));
+        }
+
+        .headline {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            text-shadow: 0 4px 20px rgba(0, 227, 193, 0.4);
+            background: linear-gradient(135deg, var(--primary-color) 0%, #00b8a8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subheadline {
+            font-size: 1.4rem;
+            color: #e0e0e0;
+            max-width: 800px;
+            margin: 0 auto;
+            font-weight: 300;
+        }
+
+        /* E-book Cover Section */
+        .ebook-section {
+            padding: 4rem 0;
+            text-align: center;
+            background: var(--dark-bg);
+        }
+
+        .ebook-cover {
+            max-width: 400px;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 227, 193, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .ebook-cover:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 30px 80px rgba(0, 227, 193, 0.3);
+        }
+
+        /* Benefits Section */
+        .benefits-section {
+            padding: 4rem 0;
+            background: var(--accent-bg);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            text-align: center;
+            margin-bottom: 3rem;
+            font-weight: 700;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .benefit-item {
+            background: var(--dark-bg);
+            padding: 2rem;
+            border-radius: 15px;
+            border-left: 4px solid var(--primary-color);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .benefit-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(0, 227, 193, 0.05) 0%, transparent 50%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .benefit-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 10px 30px rgba(0, 227, 193, 0.2);
+        }
+
+        .benefit-item:hover::before {
+            opacity: 1;
+        }
+
+        .benefit-icon {
+            font-size: 1.5rem;
+            margin-right: 1rem;
+        }
+
+        .benefit-text {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        /* Bonus Section */
+        .bonus-section {
+            padding: 4rem 0;
+            text-align: center;
+            background: var(--gradient-bg);
+        }
+
+        .bonus-text {
+            font-size: 1.3rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Enhanced Social Proof Styles */
+        .stats-counter {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+            text-align: center;
+        }
+
+        .stat-item {
+            background: var(--accent-bg);
+            padding: 2rem 1rem;
+            border-radius: 15px;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .stat-item:hover {
+            border-color: var(--primary-color);
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            color: #e0e0e0;
+            font-weight: 500;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .testimonial-card {
+            background: var(--accent-bg);
+            padding: 2rem;
+            border-radius: 20px;
+            border-left: 4px solid var(--primary-color);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 227, 193, 0.2);
+        }
+
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .client-photo {
+            margin-right: 1rem;
+        }
+
+        .client-photo img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: 3px solid var(--primary-color);
+        }
+
+        .client-info {
+            flex: 1;
+        }
+
+        .client-name {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--text-color);
+            margin-bottom: 0.2rem;
+        }
+
+        .client-title {
+            font-size: 0.9rem;
+            color: #b0b0b0;
+            margin-bottom: 0.5rem;
+        }
+
+        .rating {
+            color: #ffd700;
+            font-size: 1.1rem;
+        }
+
+        .testimonial-text {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #e0e0e0;
+            margin-bottom: 1.5rem;
+        }
+
+        .result-highlight {
+            background: rgba(0, 227, 193, 0.1);
+            padding: 0.8rem 1rem;
+            border-radius: 10px;
+            border-left: 3px solid var(--primary-color);
+        }
+
+        .result-label {
+            font-size: 0.9rem;
+            color: #b0b0b0;
+            margin-right: 0.5rem;
+        }
+
+        .result-value {
+            font-weight: 700;
+            color: var(--primary-color);
+            font-size: 1rem;
+        }
+
+        .activity-feed {
+            background: var(--dark-bg);
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin-top: 3rem;
+            text-align: left;
+        }
+
+        .activity-item {
+            display: flex;
+            align-items: center;
+            padding: 0.8rem 0;
+            border-bottom: 1px solid var(--accent-bg);
+            animation: fadeInActivity 0.5s ease-in-out;
+        }
+
+        .activity-item:last-child {
+            border-bottom: none;
+        }
+
+        .activity-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            margin-right: 1rem;
+            animation: pulse 2s infinite;
+        }
+
+        .activity-text {
+            flex: 1;
+            font-size: 0.9rem;
+            color: #e0e0e0;
+        }
+
+        .activity-time {
+            font-size: 0.8rem;
+            color: #888;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.5;
+            }
+        }
+
+        @keyframes fadeInActivity {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Scarcity Alert Styles */
+        .scarcity-alert {
+            background: linear-gradient(135deg, #ff4444 0%, #cc0000 100%);
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            font-weight: 600;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(255, 68, 68, 0.3);
+        }
+
+        .scarcity-alert .blink {
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 50% {
+                opacity: 1;
+            }
+            51%, 100% {
+                opacity: 0.7;
+            }
+        }
+
+        .stock-counter {
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin: 2rem auto;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        .stock-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #ff4444;
+            text-shadow: 0 2px 10px rgba(255, 68, 68, 0.5);
+        }
+
+        .stock-text {
+            font-size: 1.1rem;
+            margin-top: 0.5rem;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 4rem 0;
+            background: var(--accent-bg);
+        }
+
+        .faq-item {
+            background: var(--dark-bg);
+            margin-bottom: 1rem;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .faq-summary {
+            padding: 1.5rem;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1.1rem;
+            border-left: 4px solid var(--primary-color);
+            transition: background-color 0.3s ease;
+        }
+
+        .faq-summary:hover {
+            background: rgba(0, 227, 193, 0.1);
+        }
+
+        .faq-content {
+            padding: 0 1.5rem 1.5rem 1.5rem;
+            color: #e0e0e0;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 4rem 0;
+            text-align: center;
+            background: var(--gradient-bg);
+            position: relative;
+        }
+
+        .countdown {
+            background: rgba(255, 0, 0, 0.1);
+            border: 2px solid #ff4444;
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin: 2rem auto;
+            max-width: 400px;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .countdown-timer {
+            color: #ff4444;
+            font-size: 1.5rem;
+            font-weight: 800;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary-color) 0%, #00b8a8 100%);
+            color: var(--dark-bg);
+            padding: 1.5rem 3rem;
+            font-size: 1.3rem;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 227, 193, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0, 227, 193, 0.4);
+        }
+
+        .cta-note {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: #ccc;
+        }
+
+        /* Footer */
+        .footer {
+            padding: 2rem 0;
+            background: var(--dark-bg);
+            text-align: center;
+            border-top: 1px solid var(--accent-bg);
+        }
+
+        .footer-links {
+            margin-bottom: 1rem;
+        }
+
+        .footer-links a {
+            color: var(--primary-color);
+            text-decoration: none;
+            margin: 0 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #00b8a8;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .headline {
+                font-size: 2.5rem;
+            }
+
+            .subheadline {
+                font-size: 1.2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .slide {
+                padding: 2rem 1rem;
+            }
+
+            .cta-button {
+                padding: 1.2rem 2rem;
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            .headline {
+                font-size: 2rem;
+            }
+
+            .ebook-cover {
+                max-width: 300px;
+            }
+
+            .benefit-item {
+                padding: 1.5rem;
+            }
+        }
+    </style>
 </head>
 <body>
 <!-- Scarcity Alert -->
 <div class="scarcity-alert">
-  <span class="blink">🔥 ATENÇÃO:</span> Restam apenas <span id="stock-left">23</span> cópias disponíveis nesta promoção!
+    <span class="blink">🔥 ATENÇÃO:</span> Restam apenas <span id="stock-left">23</span> cópias disponíveis nesta
+    promoção!
 </div>
 
 <!-- Header Section -->
 <header class="header">
-  <div class="container">
-    <!-- Logo placeholder - replace with actual logo -->
-    <img src="assets/logo.jpeg" alt="Evolua com IA" class="logo" loading="lazy">
+    <div class="container">
+        <!-- Logo placeholder - replace with actual logo -->
+        <img src="assets/logo.jpeg" alt="Evolua com IA" class="logo" loading="lazy">
 
-    <h1 class="headline">Impulsione suas campanhas com IA</h1>
-    <p class="subheadline">Descubra como aplicar inteligência artificial para aumentar suas conversões e otimizar suas estratégias – por apenas R$14,90!</p>
-  </div>
+        <h1 class="headline">Impulsione suas campanhas com IA</h1>
+        <p class="subheadline">Descubra como aplicar inteligência artificial para aumentar suas conversões e otimizar
+            suas estratégias – por apenas R$14,90!</p>
+    </div>
 </header>
 
 <!-- E-book Cover Section -->
 <section class="ebook-section">
-  <div class="container">
-    <!-- E-book cover placeholder - replace with actual cover image -->
-    <img src="assets/book_cover.jpeg" alt="Capa do E-book: 5 Prompts de IA Poderosos" class="ebook-cover" loading="lazy">
-  </div>
+    <div class="container">
+        <!-- E-book cover placeholder - replace with actual cover image -->
+        <img src="assets/book_cover.jpeg" alt="Capa do E-book: 5 Prompts de IA Poderosos" class="ebook-cover"
+             loading="lazy">
+    </div>
 </section>
 
 <!-- Benefits Section -->
 <section class="benefits-section">
-  <div class="container">
-    <h2 class="section-title">O que você vai descobrir:</h2>
-    <div class="benefits-grid">
-      <div class="benefit-item">
-        <span class="benefit-icon">✔️</span>
-        <span class="benefit-text">5 prompts testados e aprovados para criar campanhas de alta conversão</span>
-      </div>
-      <div class="benefit-item">
-        <span class="benefit-icon">⚡</span>
-        <span class="benefit-text">Técnicas avançadas para otimizar seus anúncios automaticamente</span>
-      </div>
-      <div class="benefit-item">
-        <span class="benefit-icon">📈</span>
-        <span class="benefit-text">Estratégias comprovadas para aumentar o ROI das suas campanhas</span>
-      </div>
-      <div class="benefit-item">
-        <span class="benefit-icon">🤖</span>
-        <span class="benefit-text">Como usar IA para personalizar mensagens e aumentar engajamento</span>
-      </div>
+    <div class="container">
+        <h2 class="section-title">O que você vai descobrir:</h2>
+        <div class="benefits-grid">
+            <div class="benefit-item">
+                <span class="benefit-icon">✔️</span>
+                <span class="benefit-text">5 prompts testados e aprovados para criar campanhas de alta conversão</span>
+            </div>
+            <div class="benefit-item">
+                <span class="benefit-icon">⚡</span>
+                <span class="benefit-text">Técnicas avançadas para otimizar seus anúncios automaticamente</span>
+            </div>
+            <div class="benefit-item">
+                <span class="benefit-icon">📈</span>
+                <span class="benefit-text">Estratégias comprovadas para aumentar o ROI das suas campanhas</span>
+            </div>
+            <div class="benefit-item">
+                <span class="benefit-icon">🤖</span>
+                <span class="benefit-text">Como usar IA para personalizar mensagens e aumentar engajamento</span>
+            </div>
+        </div>
     </div>
-  </div>
 </section>
 
 <!-- Bonus Section -->
 <section class="bonus-section">
-  <div class="container">
-    <h2 class="section-title">Bônus Especial</h2>
-    <p class="bonus-text">Além dos 5 prompts poderosos, você receberá uma <strong>planilha prática com todos os prompts</strong> organizados e prontos para usar, economizando horas de trabalho!</p>
-  </div>
+    <div class="container">
+        <h2 class="section-title">Bônus Especial</h2>
+        <p class="bonus-text">Além dos 5 prompts poderosos, você receberá uma <strong>planilha prática com todos os
+            prompts</strong> organizados e prontos para usar, economizando horas de trabalho!</p>
+    </div>
 </section>
 
 <!-- Social Proof Section -->
 <section class="testimonials-section">
-  <div class="container">
-    <h2 class="section-title">+2.847 profissionais já transformaram seus resultados</h2>
+    <div class="container">
+        <h2 class="section-title">+2.847 profissionais já transformaram seus resultados</h2>
 
-    <!-- Stats Counter -->
-    <div class="stats-counter">
-      <div class="stat-item">
-        <div class="stat-number" id="downloads-counter">2847</div>
-        <div class="stat-label">Downloads Realizados</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-number">4.9</div>
-        <div class="stat-label">★★★★★ Avaliação Média</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-number">156%</div>
-        <div class="stat-label">Aumento Médio de ROI</div>
-      </div>
+        <!-- Stats Counter -->
+        <div class="stats-counter">
+            <div class="stat-item">
+                <div class="stat-number" id="downloads-counter">2847</div>
+                <div class="stat-label">Downloads Realizados</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">4.9</div>
+                <div class="stat-label">★★★★★ Avaliação Média</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">156%</div>
+                <div class="stat-label">Aumento Médio de ROI</div>
+            </div>
+        </div>
+
+        <!-- Enhanced Testimonials -->
+        <!--    Todo: Colocar imagens corretas-->
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="testimonial-header">
+                    <div class="client-photo">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48Y2lyY2xlIGN4PSIzMCIgY3k9IjMwIiByPSIzMCIgZmlsbD0iIzAwZTNjMSIvPjx0ZXh0IHg9IjMwIiB5PSIzNyIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjI0IiBmb250LXdlaWdodD0iYm9sZCIgZmlsbD0iIzA4MTAxYSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+QVM8L3RleHQ+PC9zdmc+"
+                             alt="Ana Silva" loading="lazy">
+                    </div>
+                    <div class="client-info">
+                        <div class="client-name">Ana Silva</div>
+                        <div class="client-title">CEO, Marketing Digital Pro</div>
+                        <div class="rating">★★★★★</div>
+                    </div>
+                </div>
+                <p class="testimonial-text">"Em 15 dias aplicando os prompts, <strong>aumentei minha taxa de conversão
+                    de 2,1% para 3,8%</strong> - um resultado que eu não conseguia há meses. O investimento se pagou
+                    47x!"</p>
+                <div class="result-highlight">
+                    <span class="result-label">Resultado:</span>
+                    <span class="result-value">+81% de conversão</span>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="testimonial-header">
+                    <div class="client-photo">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48Y2lyY2xlIGN4PSIzMCIgY3k9IjMwIiByPSIzMCIgZmlsbD0iIzAwZTNjMSIvPjx0ZXh0IHg9IjMwIiB5PSIzNyIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjI0IiBmb250LXdlaWdodD0iYm9sZCIgZmlsbD0iIzA4MTAxYSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+Q088L3RleHQ+PC9zdmc+"
+                             alt="Carlos Oliveira" loading="lazy">
+                    </div>
+                    <div class="client-info">
+                        <div class="client-name">Carlos Oliveira</div>
+                        <div class="client-title">Diretor de Marketing, TechCorp</div>
+                        <div class="rating">★★★★★</div>
+                    </div>
+                </div>
+                <p class="testimonial-text">"Economizei <strong>R$ 3.200 em testes de anúncios</strong> no primeiro mês.
+                    Os prompts me deram copy's prontos que converteram desde o primeiro dia."</p>
+                <div class="result-highlight">
+                    <span class="result-label">Economia:</span>
+                    <span class="result-value">R$ 3.200/mês</span>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="testimonial-header">
+                    <div class="client-photo">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48Y2lyY2xlIGN4PSIzMCIgY3k9IjMwIiByPSIzMCIgZmlsbD0iIzAwZTNjMSIvPjx0ZXh0IHg9IjMwIiB5PSIzNyIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjI0IiBmb250LXdlaWdodD0iYm9sZCIgZmlsbD0iIzA4MTAxYSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+TU08L3RleHQ+PC9zdmc+"
+                             alt="Mariana Mendes" loading="lazy">
+                    </div>
+                    <div class="client-info">
+                        <div class="client-name">Mariana Mendes</div>
+                        <div class="client-title">Freelancer, Consultoria Digital</div>
+                        <div class="rating">★★★★★</div>
+                    </div>
+                </div>
+                <p class="testimonial-text">"Como freelancer, tempo é dinheiro. <strong>Reduzi 6 horas de criação por
+                    campanha</strong> e ainda entrego resultados superiores aos meus clientes."</p>
+                <div class="result-highlight">
+                    <span class="result-label">Tempo poupado:</span>
+                    <span class="result-value">6h por projeto</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Live Activity Feed -->
+        <div class="activity-feed" id="activity-feed">
+            <div class="activity-item">
+                <span class="activity-dot"></span>
+                <span class="activity-text">Maria de SP acabou de baixar o e-book</span>
+                <span class="activity-time">há 2 min</span>
+            </div>
+        </div>
     </div>
-
-    <!-- Enhanced Testimonials -->
-<!--    Todo: Colocar imagens corretas-->
-    <div class="testimonials-grid">
-      <div class="testimonial-card">
-        <div class="testimonial-header">
-          <div class="client-photo">
-            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48Y2lyY2xlIGN4PSIzMCIgY3k9IjMwIiByPSIzMCIgZmlsbD0iIzAwZTNjMSIvPjx0ZXh0IHg9IjMwIiB5PSIzNyIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjI0IiBmb250LXdlaWdodD0iYm9sZCIgZmlsbD0iIzA4MTAxYSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+QVM8L3RleHQ+PC9zdmc+" alt="Ana Silva" loading="lazy">
-          </div>
-          <div class="client-info">
-            <div class="client-name">Ana Silva</div>
-            <div class="client-title">CEO, Marketing Digital Pro</div>
-            <div class="rating">★★★★★</div>
-          </div>
-        </div>
-        <p class="testimonial-text">"Em 15 dias aplicando os prompts, <strong>aumentei minha taxa de conversão de 2,1% para 3,8%</strong> - um resultado que eu não conseguia há meses. O investimento se pagou 47x!"</p>
-        <div class="result-highlight">
-          <span class="result-label">Resultado:</span>
-          <span class="result-value">+81% de conversão</span>
-        </div>
-      </div>
-
-      <div class="testimonial-card">
-        <div class="testimonial-header">
-          <div class="client-photo">
-            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48Y2lyY2xlIGN4PSIzMCIgY3k9IjMwIiByPSIzMCIgZmlsbD0iIzAwZTNjMSIvPjx0ZXh0IHg9IjMwIiB5PSIzNyIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjI0IiBmb250LXdlaWdodD0iYm9sZCIgZmlsbD0iIzA4MTAxYSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+Q088L3RleHQ+PC9zdmc+" alt="Carlos Oliveira" loading="lazy">
-          </div>
-          <div class="client-info">
-            <div class="client-name">Carlos Oliveira</div>
-            <div class="client-title">Diretor de Marketing, TechCorp</div>
-            <div class="rating">★★★★★</div>
-          </div>
-        </div>
-        <p class="testimonial-text">"Economizei <strong>R$ 3.200 em testes de anúncios</strong> no primeiro mês. Os prompts me deram copy's prontos que converteram desde o primeiro dia."</p>
-        <div class="result-highlight">
-          <span class="result-label">Economia:</span>
-          <span class="result-value">R$ 3.200/mês</span>
-        </div>
-      </div>
-
-      <div class="testimonial-card">
-        <div class="testimonial-header">
-          <div class="client-photo">
-            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48Y2lyY2xlIGN4PSIzMCIgY3k9IjMwIiByPSIzMCIgZmlsbD0iIzAwZTNjMSIvPjx0ZXh0IHg9IjMwIiB5PSIzNyIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjI0IiBmb250LXdlaWdodD0iYm9sZCIgZmlsbD0iIzA4MTAxYSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+TU08L3RleHQ+PC9zdmc+" alt="Mariana Mendes" loading="lazy">
-          </div>
-          <div class="client-info">
-            <div class="client-name">Mariana Mendes</div>
-            <div class="client-title">Freelancer, Consultoria Digital</div>
-            <div class="rating">★★★★★</div>
-          </div>
-        </div>
-        <p class="testimonial-text">"Como freelancer, tempo é dinheiro. <strong>Reduzi 6 horas de criação por campanha</strong> e ainda entrego resultados superiores aos meus clientes."</p>
-        <div class="result-highlight">
-          <span class="result-label">Tempo poupado:</span>
-          <span class="result-value">6h por projeto</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- Live Activity Feed -->
-    <div class="activity-feed" id="activity-feed">
-      <div class="activity-item">
-        <span class="activity-dot"></span>
-        <span class="activity-text">Maria de SP acabou de baixar o e-book</span>
-        <span class="activity-time">há 2 min</span>
-      </div>
-    </div>
-  </div>
 </section>
 
 <!-- FAQ Section -->
 <section class="faq-section">
-  <div class="container">
-    <h2 class="section-title">Perguntas Frequentes</h2>
-    <div class="faq-item">
-      <details>
-        <summary class="faq-summary">Como recebo o e-book após a compra?</summary>
-        <div class="faq-content">
-          <p>Você receberá o download imediatamente após a confirmação do pagamento, diretamente em seu e-mail.</p>
+    <div class="container">
+        <h2 class="section-title">Perguntas Frequentes</h2>
+        <div class="faq-item">
+            <details>
+                <summary class="faq-summary">Como recebo o e-book após a compra?</summary>
+                <div class="faq-content">
+                    <p>Você receberá o download imediatamente após a confirmação do pagamento, diretamente em seu
+                        e-mail.</p>
+                </div>
+            </details>
         </div>
-      </details>
-    </div>
-    <div class="faq-item">
-      <details>
-        <summary class="faq-summary">Os prompts funcionam para qualquer tipo de negócio?</summary>
-        <div class="faq-content">
-          <p>Sim! Os prompts foram desenvolvidos para serem versáteis e podem ser adaptados para qualquer nicho ou segmento de mercado.</p>
+        <div class="faq-item">
+            <details>
+                <summary class="faq-summary">Os prompts funcionam para qualquer tipo de negócio?</summary>
+                <div class="faq-content">
+                    <p>Sim! Os prompts foram desenvolvidos para serem versáteis e podem ser adaptados para qualquer
+                        nicho ou segmento de mercado.</p>
+                </div>
+            </details>
         </div>
-      </details>
-    </div>
-    <div class="faq-item">
-      <details>
-        <summary class="faq-summary">Preciso de conhecimento técnico para usar?</summary>
-        <div class="faq-content">
-          <p>Não! O e-book foi criado para ser prático e acessível, com instruções claras e exemplos reais de aplicação.</p>
+        <div class="faq-item">
+            <details>
+                <summary class="faq-summary">Preciso de conhecimento técnico para usar?</summary>
+                <div class="faq-content">
+                    <p>Não! O e-book foi criado para ser prático e acessível, com instruções claras e exemplos reais de
+                        aplicação.</p>
+                </div>
+            </details>
         </div>
-      </details>
-    </div>
-    <div class="faq-item">
-      <details>
-        <summary class="faq-summary">Há garantia de satisfação?</summary>
-        <div class="faq-content">
-          <p>Sim, oferecemos 7 dias de garantia incondicional. Se não ficar satisfeito, devolvemos seu dinheiro.</p>
+        <div class="faq-item">
+            <details>
+                <summary class="faq-summary">Há garantia de satisfação?</summary>
+                <div class="faq-content">
+                    <p>Sim, oferecemos 7 dias de garantia incondicional. Se não ficar satisfeito, devolvemos seu
+                        dinheiro.</p>
+                </div>
+            </details>
         </div>
-      </details>
     </div>
-  </div>
 </section>
 
 <!-- CTA Section with Countdown and Scarcity -->
 <section class="cta-section">
-  <div class="container">
-    <h2 class="section-title">Transforme suas campanhas por apenas R$ 14,90</h2>
+    <div class="container">
+        <h2 class="section-title">Transforme suas campanhas por apenas R$ 14,90</h2>
 
-    <!-- Stock Counter -->
-    <div class="stock-counter">
-      <div class="stock-number" id="stock-display">23</div>
-      <div class="stock-text">cópias restantes nesta promoção</div>
+        <!-- Stock Counter -->
+        <div class="stock-counter">
+            <div class="stock-number" id="stock-display">23</div>
+            <div class="stock-text">cópias restantes nesta promoção</div>
+        </div>
+
+        <div class="countdown">
+            <p>⏰ Oferta expira em:</p>
+            <div class="countdown-timer" id="countdown-timer">24h 00m 00s</div>
+        </div>
+
+        <a href="https://pay.hotmart.com/Y99717508D?off=fxlt3f4n" class="cta-button" target="_blank"
+           onclick="updateStock()">
+            Garantir Minha Cópia Agora
+        </a>
+
+        <p class="cta-note">*Download imediato após a compra.</p>
     </div>
-
-    <div class="countdown">
-      <p>⏰ Oferta expira em:</p>
-      <div class="countdown-timer" id="countdown-timer">24h 00m 00s</div>
-    </div>
-
-    <a href="https://pay.hotmart.com/Y99717508D?off=fxlt3f4n" class="cta-button" target="_blank" onclick="updateStock()">
-      Garantir Minha Cópia Agora
-    </a>
-
-    <p class="cta-note">*Download imediato após a compra.</p>
-  </div>
 </section>
 
 <!-- Footer -->
 <footer class="footer">
-  <div class="container">
-    <div class="footer-links">
-      <a href="#privacy">Política de Privacidade</a>
-      <a href="#terms">Termos de Uso</a>
+    <div class="container">
+        <div class="footer-links">
+            <a href="#privacy">Política de Privacidade</a>
+            <a href="#terms">Termos de Uso</a>
+        </div>
+        <p>&copy; 2025 Evolua com IA. Todos os direitos reservados.</p>
     </div>
-    <p>&copy; 2025 Evolua com IA. Todos os direitos reservados.</p>
-  </div>
 </footer>
 
 <script>
-  // Enhanced Social Proof - Live Activity Feed
-  const activities = [
-    { name: "Maria de SP", action: "baixou o e-book", time: 2 },
-    { name: "João do RJ", action: "fez a compra", time: 5 },
-    { name: "Ana de MG", action: "baixou o e-book", time: 8 },
-    { name: "Carlos de PR", action: "fez a compra", time: 12 },
-    { name: "Lucia de RS", action: "baixou o e-book", time: 15 },
-    { name: "Pedro de SC", action: "fez a compra", time: 18 },
-    { name: "Fernanda de GO", action: "baixou o e-book", time: 22 }
-  ];
+    // Enhanced Social Proof - Live Activity Feed (com dados mais variados)
 
-  let activityIndex = 0;
+    const nomes = [
+        "Maria", "João", "Ana", "Carlos", "Lucia", "Pedro", "Fernanda", "Rafael", "Juliana", "Tiago",
+        "Camila", "Bruno", "Patrícia", "Eduardo", "Sofia", "Guilherme", "Larissa", "Lucas", "Beatriz", "Gabriel",
+        "Aline", "Rodrigo", "Isabela", "Felipe", "Amanda", "Marcelo", "Renata", "Vinícius", "Letícia", "André",
+        "Natália", "Ricardo", "Daniela", "Fábio", "Viviane", "Murilo", "Tatiane", "Hugo", "Simone", "Alessandro",
+        "Débora", "Caio", "Jéssica", "Leonardo", "Mariana", "Fernando", "Tatiana", "Samuel", "Roberta", "Paulo",
+        "Cristiane", "Danilo", "Raquel", "Igor", "Helena", "Wesley", "Elaine", "Otávio", "Lúcia", "Thiago",
+        "Bárbara", "Nelson", "Silvana", "Diego", "Tânia", "César", "Adriana", "Douglas", "Rogério", "Cláudia",
+        "Márcio", "Luciana", "Evandro", "Sandra", "Anderson", "Cintia", "Leandro", "Priscila", "José", "Marta",
+        "Henrique", "Noemi", "Antônio", "Kelly", "Vitor", "Rita", "Jonas", "Carla", "Jefferson", "Yasmin",
+        "Mateus", "Tainá", "Alan", "Nicole", "Alana", "Bruna", "Cristiano", "Melissa", "Silas", "Isadora",
+        "Otto", "Vitória", "Cristina", "Valter", "Regina", "Clovis", "Flávia", "Nelma", "Enzo", "Valéria",
+        "Rebeca", "Adriano", "Iris", "Caetano", "Jade", "Renan", "Mirela", "Túlio", "Lorena", "Jorge",
+        "Milena", "Breno", "Dandara", "Érico", "Mônica", "Laís", "Fabrício", "Clarice", "Daniele", "Júnior",
+        "Cristal", "Emanuel", "Solange", "Ivan", "Letícia", "Manoel", "Graziella", "Joaquim", "Ariane", "Otília",
+        "Benedito", "Nina", "Luan", "Maíra", "Éverton", "Regiane", "Severino", "Nathalia", "Luiz", "Caroline",
+        "Joana", "Raul", "Vera", "Hélio", "Luana", "Zeca", "Alice", "Vicente", "Selma", "Álvaro",
+        "Geovana", "Assis", "Giovana", "Érica", "Luciene", "Raimundo", "Isaque", "Glória", "Salomão", "Tatiely",
+        "Andressa", "Moacir", "Penélope", "Marcos", "Catarina", "Benício", "Joice", "Jonatan", "Fabiana", "Ícaro",
+        "Anita", "Eliana", "Gabriela", "Elias", "Neusa", "Josias", "Raíssa", "Jônatas", "Celina", "Muriel",
+        "Davi", "Amanda", "Suelen", "Cássio", "Julieta", "Hugo", "Tobias", "Camile", "Zuleica", "Tiaguinho"
+    ];
 
-  function updateActivityFeed() {
-    const feedContainer = document.getElementById('activity-feed');
-    const activity = activities[activityIndex];
 
-    const activityItem = document.createElement('div');
-    activityItem.className = 'activity-item';
-    activityItem.innerHTML = `
-                <span class="activity-dot"></span>
-                <span class="activity-text">${activity.name} acabou de ${activity.action}</span>
-                <span class="activity-time">há ${activity.time} min</span>
-            `;
+    const estados = [
+        "SP", "RJ", "MG", "PR", "RS", "SC", "GO", "BA", "PE", "CE", "DF", "MT", "AM", "PA", "MA", "PB", "SE", "AL", "TO", "PI"
+    ];
 
-    // Remove oldest item if more than 3
-    if (feedContainer.children.length >= 3) {
-      feedContainer.removeChild(feedContainer.lastChild);
-    }
+    const acoes = [
+        "baixar o e-book", "fazer a compra", "solicitar mais informações", "compartilhar a página",
+        "acessar o material gratuito", "clicar no anúncio", "enviar uma dúvida", "avaliar o produto",
+        "entrar em contato", "aderir à oferta",
+    ];
 
-    // Add new item at the top
-    feedContainer.insertBefore(activityItem, feedContainer.firstChild);
+    function gerarAtividadeAleatoria() {
+        const nome = nomes[Math.floor(Math.random() * nomes.length)];
+        const estado = estados[Math.floor(Math.random() * estados.length)];
+        const acao = acoes[Math.floor(Math.random() * acoes.length)];
+        const tempo = Math.floor(Math.random() * 25) + 1; // 1 a 25 minutos
 
-    activityIndex = (activityIndex + 1) % activities.length;
-  }
+        // Lista de estados com preposição "da"
+        const estadosDa = ["BA", "PB"];
 
-  // Update activity feed every 8 seconds
-  setInterval(updateActivityFeed, 8000);
+        // Lista de estados com preposição "do"
+        const estadosDo = ["AC", "AL", "AM", "AP", "CE", "DF", "ES", "GO", "MA", "MS", "MT", "PA", "PE", "PI", "PR", "RJ", "RN", "RO", "RR", "RS", "SC", "SE", "SP", "TO"];
 
-  // Counter animation for stats
-  function animateCounter(elementId, targetValue, duration = 2000) {
-    const element = document.getElementById(elementId);
-    const startValue = 0;
-    const startTime = performance.now();
-
-    function updateCounter(currentTime) {
-      const elapsedTime = currentTime - startTime;
-      const progress = Math.min(elapsedTime / duration, 1);
-      const currentValue = Math.floor(startValue + (targetValue - startValue) * progress);
-
-      element.textContent = currentValue.toLocaleString();
-
-      if (progress < 1) {
-        requestAnimationFrame(updateCounter);
-      }
-    }
-
-    requestAnimationFrame(updateCounter);
-  }
-
-  // Scarcity Management
-  let currentStock = parseInt(localStorage.getItem('ebook-stock')) || Math.floor(Math.random() * 20) + 15;
-
-  function updateStock() {
-    if (currentStock > 5) {
-      currentStock--;
-      localStorage.setItem('ebook-stock', currentStock);
-      updateStockDisplay();
-    }
-  }
-
-  function updateStockDisplay() {
-    document.getElementById('stock-left').textContent = currentStock;
-    document.getElementById('stock-display').textContent = currentStock;
-
-    // Update urgency color based on stock level
-    const stockElements = document.querySelectorAll('.stock-number, #stock-left');
-    stockElements.forEach(el => {
-      if (currentStock <= 10) {
-        el.style.color = '#ff4444';
-      } else if (currentStock <= 20) {
-        el.style.color = '#ff8800';
-      }
-    });
-  }
-
-  // Realistic stock decrease
-  function decreaseStock() {
-    if (Math.random() < 0.3 && currentStock > 5) { // 30% chance every interval
-      currentStock--;
-      localStorage.setItem('ebook-stock', currentStock);
-      updateStockDisplay();
-    }
-  }
-
-  // Decrease stock randomly every 30-90 seconds
-  setInterval(decreaseStock, Math.random() * 60000 + 30000);
-
-  // Countdown Timer
-  function startCountdown() {
-    // Set countdown for 24 hours from now
-    const countdownTime = new Date().getTime() + (24 * 60 * 60 * 1000);
-
-    const timer = setInterval(function() {
-      const now = new Date().getTime();
-      const distance = countdownTime - now;
-
-      const hours = Math.floor(distance / (1000 * 60 * 60));
-      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-      document.getElementById('countdown-timer').textContent =
-              `${hours.toString().padStart(2, '0')}h ${minutes.toString().padStart(2, '0')}m ${seconds.toString().padStart(2, '0')}s`;
-
-      if (distance < 0) {
-        clearInterval(timer);
-        document.getElementById('countdown-timer').textContent = "Oferta expirada!";
-      }
-    }, 1000);
-  }
-
-  // Initialize everything on page load
-  document.addEventListener('DOMContentLoaded', function() {
-    // Initialize stock display
-    updateStockDisplay();
-
-    // Start countdown
-    startCountdown();
-
-    // Animate counters when they come into view
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          setTimeout(() => animateCounter('downloads-counter', 2847), 500);
-          observer.unobserve(entry.target);
+        let preposicao;
+        if (estadosDa.includes(estado)) {
+            preposicao = "da";
+        } else if (estadosDo.includes(estado)) {
+            preposicao = "do";
+        } else {
+            preposicao = "de"; // fallback
         }
-      });
-    });
 
-    const statsSection = document.querySelector('.stats-counter');
-    if (statsSection) {
-      observer.observe(statsSection);
+        return {
+            name: `${nome} ${preposicao} ${estado}`,
+            action: acao,
+            time: tempo
+        };
     }
 
-    // Initialize activity feed
-    updateActivityFeed();
-  });
+    function updateActivityFeed() {
+        const feedContainer = document.getElementById('activity-feed');
+        const activity = gerarAtividadeAleatoria();
 
-  // Smooth scrolling for internal links
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-      e.preventDefault();
-      const target = document.querySelector(this.getAttribute('href'));
-      if (target) {
-        target.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start'
+        const activityItem = document.createElement('div');
+        activityItem.className = 'activity-item';
+        activityItem.innerHTML = `
+    <span class="activity-dot"></span>
+    <span class="activity-text">${activity.name} acabou de ${activity.action}</span>
+    <span class="activity-time">há ${activity.time} min</span>
+  `;
+
+        // Remove oldest item if more than 3
+        if (feedContainer.children.length >= 3) {
+            feedContainer.removeChild(feedContainer.lastChild);
+        }
+
+        // Add new item at the top
+        feedContainer.insertBefore(activityItem, feedContainer.firstChild);
+    }
+
+    // Exemplo de uso com atualização a cada 6 segundos
+    setInterval(updateActivityFeed, 7000);
+
+    // Counter animation for stats
+    function animateCounter(elementId, targetValue, duration = 2000) {
+        const element = document.getElementById(elementId);
+        const startValue = 0;
+        const startTime = performance.now();
+
+        function updateCounter(currentTime) {
+            const elapsedTime = currentTime - startTime;
+            const progress = Math.min(elapsedTime / duration, 1);
+            const currentValue = Math.floor(startValue + (targetValue - startValue) * progress);
+
+            element.textContent = currentValue.toLocaleString();
+
+            if (progress < 1) {
+                requestAnimationFrame(updateCounter);
+            }
+        }
+
+        requestAnimationFrame(updateCounter);
+    }
+
+    // Scarcity Management
+    let currentStock = parseInt(localStorage.getItem('ebook-stock')) || Math.floor(Math.random() * 20) + 15;
+
+    function updateStock() {
+        if (currentStock > 5) {
+            currentStock--;
+            localStorage.setItem('ebook-stock', currentStock);
+            updateStockDisplay();
+        }
+    }
+
+    function updateStockDisplay() {
+        document.getElementById('stock-left').textContent = currentStock;
+        document.getElementById('stock-display').textContent = currentStock;
+
+        // Update urgency color based on stock level
+        const stockElements = document.querySelectorAll('.stock-number, #stock-left');
+        stockElements.forEach(el => {
+            if (currentStock <= 10) {
+                el.style.color = '#ff4444';
+            } else if (currentStock <= 20) {
+                el.style.color = '#ff8800';
+            }
         });
-      }
+    }
+
+    // Realistic stock decrease
+    function decreaseStock() {
+        if (Math.random() < 0.3 && currentStock > 5) { // 30% chance every interval
+            currentStock--;
+            localStorage.setItem('ebook-stock', currentStock);
+            updateStockDisplay();
+        }
+    }
+
+    // Decrease stock randomly every 30-90 seconds
+    setInterval(decreaseStock, Math.random() * 60000 + 30000);
+
+    // Countdown Timer
+    function startCountdown() {
+        // Set countdown for 24 hours from now
+        const countdownTime = new Date().getTime() + (24 * 60 * 60 * 1000);
+
+        const timer = setInterval(function () {
+            const now = new Date().getTime();
+            const distance = countdownTime - now;
+
+            const hours = Math.floor(distance / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById('countdown-timer').textContent =
+                `${hours.toString().padStart(2, '0')}h ${minutes.toString().padStart(2, '0')}m ${seconds.toString().padStart(2, '0')}s`;
+
+            if (distance < 0) {
+                clearInterval(timer);
+                document.getElementById('countdown-timer').textContent = "Oferta expirada!";
+            }
+        }, 1000);
+    }
+
+    // Initialize everything on page load
+    document.addEventListener('DOMContentLoaded', function () {
+        // Initialize stock display
+        updateStockDisplay();
+
+        // Start countdown
+        startCountdown();
+
+        // Animate counters when they come into view
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => animateCounter('downloads-counter', 2847), 500);
+                    observer.unobserve(entry.target);
+                }
+            });
+        });
+
+        const statsSection = document.querySelector('.stats-counter');
+        if (statsSection) {
+            observer.observe(statsSection);
+        }
+
+        // Initialize activity feed
+        updateActivityFeed();
     });
-  });
 
-  // Enhanced CTA button interaction
-  document.querySelector('.cta-button').addEventListener('click', function() {
-    const button = this;
-    const originalText = button.textContent;
-    button.textContent = 'Processando compra...';
+    // Smooth scrolling for internal links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
 
-    // Update stock when clicking CTA
-    updateStock();
+    // Enhanced CTA button interaction
+    document.querySelector('.cta-button').addEventListener('click', function () {
+        const button = this;
+        const originalText = button.textContent;
+        button.textContent = 'Processando compra...';
 
-    setTimeout(() => {
-      button.textContent = originalText;
-    }, 2000);
-  });
+        // Update stock when clicking CTA
+        updateStock();
+
+        setTimeout(() => {
+            button.textContent = originalText;
+        }, 2000);
+    });
 </script>
 </body>
 </html>
